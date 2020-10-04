@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Github Pages+ Hexo 搭建博客 - Jet&#039;s Notes</title><meta description="使用Github Pages+ Hexo 搭建博客"><meta property="og:type" content="blog"><meta property="og:title" content="Github Pages+ Hexo 搭建博客"><meta property="og:url" content="https://jetyu.me/post/githubpages-hexo-blog"><meta property="og:site_name" content="Jet&#039;s Notes"><meta property="og:description" content="使用Github Pages+ Hexo 搭建博客"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://jetyu.me/img/og_image.png"><meta property="article:published_time" content="2014-01-28T08:27:13.000Z"><meta property="article:modified_time" content="2014-01-28T08:27:13.000Z"><meta property="article:author" content="Jet Yu"><meta property="article:tag" content="Hexo"><meta property="article:tag" content="博客"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://jetyu.me/post/githubpages-hexo-blog"},"headline":"Jet's Notes","image":["https://jetyu.me/img/og_image.png"],"datePublished":"2014-01-28T08:27:13.000Z","dateModified":"2014-01-28T08:27:13.000Z","author":{"@type":"Person","name":"Jet Yu"},"description":"使用Github Pages+ Hexo 搭建博客"}</script><link rel="canonical" href="https://jetyu.me/post/githubpages-hexo-blog"><link rel="icon" href="/img/favicon.ico"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">Jet&#039;s Notes</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2014-01-28T08:27:13.000Z" title="2014-01-28T08:27:13.000Z">2014-01-28</time>发表</span><span class="level-item"><time dateTime="2014-01-28T08:27:13.000Z" title="2014-01-28T08:27:13.000Z">2014-01-28</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="level-item">19 分钟读完 (大约2778个字)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">Github Pages+ Hexo 搭建博客</h1><div class="content"><hr>
+<h1 id="一、-前言"><a href="#一、-前言" class="headerlink" title="一、 前言"></a>一、 前言</h1><p>这是一篇使用GitHub Pages和Hexo搭建免费独立博客的总结。</p>
+<p>作为一个前端小白，虽说是个码农，但是一开始照着网上的各种教程去搭建的时候，还是云里雾里的。记得几个月前刚接触GitHub（哈哈，对大四来说确实有点晚），对版本控制几乎一点概念都没有，更别说使用GitHub Page能做出一个好看又好用的博客了。所以第一次的尝试失败了。</p>
+<p>后来的两三个月里，开始逐渐地把日常的学习都迁移到GitHub上进行，慢慢熟悉了Git的版本控制。</p>
+<p>我所总结的是单纯地利用GitHub Pages搭建自己独立博客的过程，并没有额外使用独立域名之类的（谁让我穷 o(^▽^)o ）。</p>
+<p>如果是小小白，可以先花时间去了解下：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://git-scm.com/book/zh/v2">Git</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/">GitHub</a></li>
+<li><a target="_blank" rel="noopener" href="https://pages.github.com/">GitHub Pages</a></li>
+<li><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.appinn.com/markdown/#autoescape">Markdown</a></li>
+</ul>
+<h1 id="二、-必要配置"><a href="#二、-必要配置" class="headerlink" title="二、 必要配置"></a>二、 必要配置</h1><h3 id="2-1-GitHub-Pages-仓库"><a href="#2-1-GitHub-Pages-仓库" class="headerlink" title="2.1 GitHub Pages 仓库"></a>2.1 GitHub Pages 仓库</h3><h4 id="2-1-1-创建对应仓库"><a href="#2-1-1-创建对应仓库" class="headerlink" title="2.1.1 创建对应仓库"></a>2.1.1 创建对应仓库</h4><p>在自己的GitHub账号下创建一个新的仓库，命名为username.github.io（username是你的账号名)。</p>
+<p>在这里，要知道，GitHub Pages有两种类型：User/Organization Pages 和 Project Pages，而我所使用的是User Pages。</p>
+<p>简单来说，User Pages 与 Project Pages的区别是：</p>
+<ol>
+<li>User Pages 是用来展示用户的，而 Project Pages 是用来展示项目的。</li>
+<li>用于存放 User Pages 的仓库必须使用username.github.io的命名规则，而 Project Pages 则没有特殊的要求。</li>
+<li>User Pages 将使用仓库的 master 分支，而 Project Pages 将使用 gh-pages 分支。</li>
+<li>User Pages 通过 http(s)://username.github.io  进行访问，而 Projects Pages通过 http(s)://username.github.io/projectname 进行访问。</li>
+</ol>
+<h4 id="2-1-2-相关资料"><a href="#2-1-2-相关资料" class="headerlink" title="2.1.2 相关资料"></a>2.1.2 相关资料</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://help.github.com/articles/user-organization-and-project-pages/">GitHub Pages Basics / User, Organization, and Project Pages</a></li>
+</ul>
+<h3 id="2-2-Git"><a href="#2-2-Git" class="headerlink" title="2.2 Git"></a>2.2 Git</h3><h4 id="2-2-1-安装-Git"><a href="#2-2-1-安装-Git" class="headerlink" title="2.2.1 安装 Git"></a>2.2.1 安装 Git</h4><p>在windows下安装git比较常用的有两种方式：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="http://git-scm.com/download/win">Git 官方版本的安装</a></li>
+<li><a target="_blank" rel="noopener" href="https://desktop.github.com/">GitHub for Windows</a></li>
+</ol>
+<h4 id="2-2-2-配置-Git"><a href="#2-2-2-配置-Git" class="headerlink" title="2.2.2 配置 Git"></a>2.2.2 配置 Git</h4><p>当安装完Git应该做的第一件事情就是设置用户名称和邮件地址。这样做很重要，因为每一个Git的提交都会使用这些信息，并且它会写入你的每一次提交中，不可更改：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">&quot;username&quot;</span></span><br><span class="line">$ git config --global user.email <span class="string">&quot;username@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>对于user.email，因为在GitHub的commits信息上是可见的，所以如果你不想让人知道你的email，可以Keeping your email address private:</p>
+<ol>
+<li>在GitHub右上方点击你的头像，选择”Settings”；</li>
+<li>在右边的”Personal settings”侧边栏选择”Emails”；</li>
+<li>选择”Keep my email address private”。</li>
+</ol>
+<p>这样，你就可以使用如下格式的email进行配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.email <span class="string">&quot;username@users.noreply.github.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-3-相关资料"><a href="#2-2-3-相关资料" class="headerlink" title="2.2.3 相关资料"></a>2.2.3 相关资料</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git">安装 Git</a></li>
+<li><a target="_blank" rel="noopener" href="http://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%88%9D%E6%AC%A1%E8%BF%90%E8%A1%8C-Git-%E5%89%8D%E7%9A%84%E9%85%8D%E7%BD%AE">配置 Git</a></li>
+<li><a target="_blank" rel="noopener" href="https://help.github.com/articles/setting-your-email-in-git/">Setting your email in Git</a></li>
+<li><a target="_blank" rel="noopener" href="https://help.github.com/articles/keeping-your-email-address-private/">Keeping your email address private
+</a></li>
+</ul>
+<h3 id="2-3-Git-与-GitHub"><a href="#2-3-Git-与-GitHub" class="headerlink" title="2.3 Git 与 GitHub"></a>2.3 Git 与 GitHub</h3><h4 id="2-3-1-git与github的区别"><a href="#2-3-1-git与github的区别" class="headerlink" title="2.3.1 git与github的区别"></a>2.3.1 git与github的区别</h4><p>这里，我们要区分清楚git与github。</p>
+<p>git是一个版本控制的工具，而github有点类似于远程仓库，用于存放用git管理的各种项目。</p>
+<h4 id="2-3-2-与github建立联系"><a href="#2-3-2-与github建立联系" class="headerlink" title="2.3.2 与github建立联系"></a>2.3.2 与github建立联系</h4><p>为了能够在本地使用git管理github上的项目，需要进行一些配置，这里介绍SSH的方法。</p>
+<h5 id="2-3-2-1-检查电脑是否已经有SSH-keys。"><a href="#2-3-2-1-检查电脑是否已经有SSH-keys。" class="headerlink" title="2.3.2.1 检查电脑是否已经有SSH keys。"></a>2.3.2.1 检查电脑是否已经有SSH keys。</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ls -al ~/.ssh</span><br><span class="line"><span class="comment"># Lists the files in your .ssh directory, if they exist</span></span><br></pre></td></tr></table></figure>
+
+<p>默认情况下，public keys的文件名是以下的格式之一：id_dsa.pub、id_ecdsa.pub、id_ed25519.pub、id_rsa.pub。因此，如果列出的文件有public和private钥匙对（例如id_ras.pub和id_rsa），证明已存在SSH keys。</p>
+<h5 id="2-3-2-2-如果没有SSH-key，则生成新的SSH-key。"><a href="#2-3-2-2-如果没有SSH-key，则生成新的SSH-key。" class="headerlink" title="2.3.2.2 如果没有SSH key，则生成新的SSH key。"></a>2.3.2.2 如果没有SSH key，则生成新的SSH key。</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -b 4096 -C <span class="string">&quot;your_email@example.com&quot;</span></span><br><span class="line"><span class="comment"># Creates a new ssh key, using the provided email as a label</span></span><br></pre></td></tr></table></figure>
+<p>之后一路回车即可。</p>
+<h5 id="2-3-2-3-向ssh-agent添加key。"><a href="#2-3-2-3-向ssh-agent添加key。" class="headerlink" title="2.3.2.3 向ssh-agent添加key。"></a>2.3.2.3 向ssh-agent添加key。</h5><p>首先确保ssh-agent可运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># start the ssh-agent in the background</span></span><br><span class="line">$ ssh-agent -s</span><br></pre></td></tr></table></figure>
+<p>然后添加SSH key：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-3-2-4-在GitHub添加SSH-key。"><a href="#2-3-2-4-在GitHub添加SSH-key。" class="headerlink" title="2.3.2.4 在GitHub添加SSH key。"></a>2.3.2.4 在GitHub添加SSH key。</h5><p>首先，拷贝key：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">clip &lt; ~/.ssh/id_rsa.pub</span><br><span class="line"><span class="comment"># Copies the contents of the id_rsa.pub file to your cllipboard</span></span><br></pre></td></tr></table></figure>
+<p>然后，在GitHub右上方点击头像，选择”Settings”，在右边的”Personal settings”侧边栏选择”SSH Keys”。接着粘贴key，点击”Add key”按钮。最后，测试链接：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br><span class="line"><span class="comment"># Attempts to ssh to GitHub</span></span><br></pre></td></tr></table></figure>
+<p>如果你看到：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The authenticity of host <span class="string">&#x27;github.com (207.97.227.239)&#x27;</span> can<span class="string">&#x27;t be established.</span></span><br><span class="line"><span class="string">RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</span></span><br><span class="line"><span class="string">Are you sure you want to continue connecting (yes/no)?</span></span><br></pre></td></tr></table></figure>
+<p>就键入：yes。之后将会看到如下信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hi username! You<span class="string">&#x27;ve successfully authenticated, but GitHub does not</span></span><br><span class="line"><span class="string">provide shell access.</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-3-3-相关资料"><a href="#2-3-3-相关资料" class="headerlink" title="2.3.3 相关资料"></a>2.3.3 相关资料</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://help.github.com/articles/generating-ssh-keys/">Generating SSH keys</a></li>
+</ul>
+<h3 id="2-4-Hexo"><a href="#2-4-Hexo" class="headerlink" title="2.4 Hexo"></a>2.4 Hexo</h3><h4 id="2-4-1-安装Hexo"><a href="#2-4-1-安装Hexo" class="headerlink" title="2.4.1 安装Hexo"></a>2.4.1 安装Hexo</h4><p>安装Hexo相当简单。在安装之前，必须检查电脑中是否已经安装下列应用程序：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://nodejs.org/">Node.js</a></li>
+<li><a target="_blank" rel="noopener" href="http://git-scm.com/">Git</a><br>如果您的电脑中已经安装上述必备程序，那么恭喜您！接下来只需要使用 npm 即可完成 Hexo 的安装。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="2-4-2-使用Hexo建站"><a href="#2-4-2-使用Hexo建站" class="headerlink" title="2.4.2 使用Hexo建站"></a>2.4.2 使用Hexo建站</h4><p>安装完后，在你喜欢的文件夹内（例如D：\Hexo），点击鼠标右键选择Git bash，输入以下指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
+<p>该命令会在目标文件夹内建立网站所需要的所有文件。接下来是安装依赖包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+
+<p>这样，我们就已经搭建起本地的Hexo博客了。可以先执行以下命令（在对应文件夹下），然后再浏览器输入localhost:4000查看。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>这个博客只是本地的，别人是浏览不了的，之后需要部署到GitHub上。</p>
+<h4 id="2-4-3-相关资料"><a href="#2-4-3-相关资料" class="headerlink" title="2.4.3 相关资料"></a>2.4.3 相关资料</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo 官方文档</a></li>
+</ul>
+<h3 id="三、一般的搭建方法"><a href="#三、一般的搭建方法" class="headerlink" title="三、一般的搭建方法"></a>三、一般的搭建方法</h3><p>在上面，我们已经配置好了所需的所有东西，也成功地搭建了一个本地Hexo博客。现在，需要使用GitHub Pages搭建一个别人能够访问的Hexo博客了。</p>
+<h4 id="3-1-使用默认theme"><a href="#3-1-使用默认theme" class="headerlink" title="3.1 使用默认theme"></a>3.1 使用默认theme</h4><p>我们继续使用上面的文件夹D:\Hexo（也可以新建一个文件夹重新生成），然后编辑该文件夹下的_config.yml。</p>
+<p>默认生成的_config.yml：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">### Docs: http://hexo.io/docs/deployment.html</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>:</span><br></pre></td></tr></table></figure>
+
+<p>修改后的_config.yml：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: 对应仓库的SSH地址（可以在GitHub对应的仓库中复制）</span><br><span class="line">  branch: 分支（User Pages为master，Project Pages为gh-pages）</span><br></pre></td></tr></table></figure>
+
+<p>为了能够使Hexo部署到GitHub上，需要安装一个插件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>然后，执行下列指令即可完成部署：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>之后，可以通过在浏览器键入：username.github.io进行浏览，开心吧~</p>
+<h4 id="3-2-其他theme"><a href="#3-2-其他theme" class="headerlink" title="3.2 其他theme"></a>3.2 其他theme</h4><p>如果想要使用其他主题，可以使用git clone将别人的主题拷贝到D:\Hexo\themes下，然后将_config.yml中的theme: landscape改为对应的主题名字。</p>
+<p>详细步骤可以参考网上的指南。</p>
+<h3 id="四、-优化部署与管理"><a href="#四、-优化部署与管理" class="headerlink" title="四、 优化部署与管理"></a>四、 优化部署与管理</h3><h4 id="4-1-概述"><a href="#4-1-概述" class="headerlink" title="4.1 概述"></a>4.1 概述</h4><p>Hexo部署到GitHub上的文件，是.md（你的博文）转化之后的.html（静态网页）。因此，当你重装电脑或者想在不同电脑上修改博客时，就不可能了（除非你自己写html o(^▽^)o ）。</p>
+<p>其实，Hexo生成的网站文件中有.gitignore文件，因此它的本意也是想我们将Hexo生成的网站文件存放到GitHub上进行管理的（而不是用U盘或者云备份啦(╬▔皿▔)凸）。这样，不仅解决了上述的问题，还可以通过git的版本控制追踪你的博文的修改过程，是极赞的。</p>
+<p>但是，如果每一个GitHub Pages都需要创建一个额外的仓库来存放Hexo网站文件，我感觉很麻烦（10个项目需要20个仓库(ˉ▽ˉ；)…）。</p>
+<p>所以，我利用了分支！！！</p>
+<p>简单地说，每个想建立GitHub Pages的仓库，起码有两个分支，一个用来存放Hexo网站的文件，一个用来发布网站。</p>
+<p>下面以我的博客作为例子详细地讲述。</p>
+<h4 id="4-2-我的博客搭建流程"><a href="#4-2-我的博客搭建流程" class="headerlink" title="4.2 我的博客搭建流程"></a>4.2 我的博客搭建流程</h4><ol>
+<li>创建仓库，jetyu.github.io；</li>
+<li>创建两个分支：master 与 hexo；</li>
+<li>设置hexo为默认分支（因为我们只需要手动管理这个分支上的Hexo网站文件）；</li>
+<li>使用git clone <a href="mailto:&#103;&#x69;&#x74;&#x40;&#x67;&#105;&#x74;&#x68;&#117;&#x62;&#46;&#x63;&#x6f;&#x6d;">&#103;&#x69;&#x74;&#x40;&#x67;&#105;&#x74;&#x68;&#117;&#x62;&#46;&#x63;&#x6f;&#x6d;</a>:jetyu/jetyu.github.io.git拷贝仓库；</li>
+<li>在本地jetyu.github.io文件夹下通过Git bash依次执行npm install hexo、hexo init、npm install 和 npm install hexo-deployer-git（此时当前分支应显示为hexo）;</li>
+<li>修改_config.yml中的deploy参数，分支应为master；</li>
+<li>依次执行git add .、git commit -m “…”、git push origin hexo提交网站相关的文件；</li>
+<li>执行hexo generate -d生成网站并部署到GitHub上。</li>
+</ol>
+<p>这样一来，在GitHub上的jetyu.github.io仓库就有两个分支，一个hexo分支用来存放网站的原始文件，一个master分支用来存放生成的静态网页。完美( •̀ ω •́ )y！</p>
+<h4 id="4-3-我的博客管理流程"><a href="#4-3-我的博客管理流程" class="headerlink" title="4.3 我的博客管理流程"></a>4.3 我的博客管理流程</h4><h5 id="4-3-1-日常修改"><a href="#4-3-1-日常修改" class="headerlink" title="4.3.1 日常修改"></a>4.3.1 日常修改</h5><p>在本地对博客进行修改（添加新博文、修改样式等等）后，通过下面的流程进行管理：</p>
+<ol>
+<li>依次执行git add .、git commit -m “…”、git push origin hexo指令将改动推送到GitHub（此时当前分支应为hexo）；</li>
+<li>然后才执行hexo generate -d发布网站到master分支上。</li>
+</ol>
+<p>虽然两个过程顺序调转一般不会有问题，不过逻辑上这样的顺序是绝对没问题的（例如突然死机要重装了，悲催….的情况，调转顺序就有问题了）。</p>
+<h5 id="4-3-2-本地资料丢失"><a href="#4-3-2-本地资料丢失" class="headerlink" title="4.3.2 本地资料丢失"></a>4.3.2 本地资料丢失</h5><p>当重装电脑之后，或者想在其他电脑上修改博客，可以使用下列步骤：</p>
+<ol>
+<li>使用git clone <a href="mailto:&#x67;&#105;&#x74;&#64;&#x67;&#x69;&#x74;&#x68;&#117;&#x62;&#46;&#99;&#x6f;&#109;">&#x67;&#105;&#x74;&#64;&#x67;&#x69;&#x74;&#x68;&#117;&#x62;&#46;&#99;&#x6f;&#109;</a>:jetyu/jetyu.github.io.git拷贝仓库（默认分支为hexo）；</li>
+<li>在本地新拷贝的jetyu.github.io文件夹下通过Git bash依次执行下列指令：npm install hexo、npm install、npm install hexo-deployer-git（记得，不需要hexo init这条指令）。</li>
+</ol>
+<h3 id="五、结尾"><a href="#五、结尾" class="headerlink" title="五、结尾"></a>五、结尾</h3><p>好累 (-.-)=</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Github Pages+ Hexo 搭建博客</p><p><a href="https://jetyu.me/post/githubpages-hexo-blog">https://jetyu.me/post/githubpages-hexo-blog</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Jet Yu</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2014-01-28</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2014-01-28</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags size-small mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/Hexo/">Hexo</a><a class="link-muted mr-2" rel="tag" href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a></div><!--!--></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button is-info donate"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="/img/alipay-donate.jpg" alt="支付宝"></span></a><a class="button is-success donate"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="/img/wechat-donate.jpg" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/post/duoshuo-comment-style"><i class="level-item fas fa-chevron-left"></i><span class="level-item">多说评论实现和UA样式分享</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/post/say-bye-university"><span class="level-item">毕业了</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content" id="valine-thread"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script>new Valine({
+            el: '#valine-thread' ,
+            appId: "K8J4A1eN9d2KT2CEEHae7lLF-gzGzoHsz",
+            appKey: "LWJjj9uBsaJ90Sca4eYnQrbN",
+            
+            avatar: "mm",
+            
+            meta: ["nick","mail","link"],
+            pageSize: 10,
+            lang: "zh-CN",
+            
+            highlight: true,
+            
+            
+            
+            
+            
+            requiredFields: [],
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.jpg" alt="Jet Yu"></figure><p class="title is-size-4 is-block line-height-inherit">Jet Yu</p><p class="is-size-6 is-block">Java Developer</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Earth</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">79</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">5</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">71</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/jetyu" target="_blank" rel="noopener">关注我</a></div></div></div><div class="card widget" id="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="is-flex" href="#一、-前言"><span class="mr-2">1</span><span>一、 前言</span></a></li><li><a class="is-flex" href="#二、-必要配置"><span class="mr-2">2</span><span>二、 必要配置</span></a><ul class="menu-list"><ul class="menu-list"><li><a class="is-flex" href="#2-1-2-相关资料"><span class="mr-2">2.1.1</span><span>2.1.2 相关资料</span></a></li><li><a class="is-flex" href="#2-2-3-相关资料"><span class="mr-2">2.1.2</span><span>2.2.3 相关资料</span></a></li><li><a class="is-flex" href="#2-3-3-相关资料"><span class="mr-2">2.1.3</span><span>2.3.3 相关资料</span></a></li><li><a class="is-flex" href="#2-4-3-相关资料"><span class="mr-2">2.1.4</span><span>2.4.3 相关资料</span></a></li><li><a class="is-flex" href="#3-2-其他theme"><span class="mr-2">2.1.5</span><span>3.2 其他theme</span></a></li><li><a class="is-flex" href="#4-3-2-本地资料丢失"><span class="mr-2">2.1.6</span><span>4.3.2 本地资料丢失</span></a></li><li><a class="is-flex" href="#五、结尾"><span class="mr-2">2.1.7</span><span>五、结尾</span></a></li></ul></ul></li></ul></div></div><style>.menu-list > li > a.is-active + .menu-list { display: block; }.menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">技术</span></span><span class="level-end"><span class="level-item tag">41</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%BC%94%E8%AE%B2/"><span class="level-start"><span class="level-item">演讲</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="level-start"><span class="level-item">生活</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%AF%BB%E4%B9%A6/"><span class="level-start"><span class="level-item">读书</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E9%9A%8F%E7%AC%94/"><span class="level-start"><span class="level-item">随笔</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2020-04-11T16:00:00.000Z">2020-04-12</time></p><p class="title is-6"><a class="link-muted" href="/post/mariadb-connection-error">解决MariaDB连接错误</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-01-20T16:00:00.000Z">2020-01-21</time></p><p class="title is-6"><a class="link-muted" href="/post/disable-cleanmymac-process">禁止流氓启动项 CleanMyMac X HealthMonitor</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2019-12-31T16:00:00.000Z">2020-01-01</time></p><p class="title is-6"><a class="link-muted" href="/post/homebrew-install-openjdk">macOS使用homebrew安装JDK</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2019-11-10T16:00:00.000Z">2019-11-11</time></p><p class="title is-6"><a class="link-muted" href="/post/eclipse-boot-optimization">Eclipse启动速度优化</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2019-07-11T16:00:00.000Z">2019-07-12</time></p><p class="title is-6"><a class="link-muted" href="/post/docker-jenkins-upgrade">在Docker中升级Jenkins版本</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://curl.qcloud.com/FNBPkY8D" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">腾讯云99元</span></span><span class="level-right"><span class="level-item tag">curl.qcloud.com</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://how2j.cn/k/tmall_ssm/tmall_ssm-1554/1554.html?p=126142" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">免费Java实战</span></span><span class="level-right"><span class="level-item tag">how2j.cn</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">Jet&#039;s Notes</a><p class="size-small"><span>&copy; 2020 Jet Yu</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" async></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

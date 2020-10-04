@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Jet&#039;s Notes</title><meta description="Jet&amp;#39;s Notes - 在这里分享我在工作和生活中的感想"><meta property="og:type" content="blog"><meta property="og:title" content="Jet&#039;s Notes"><meta property="og:url" content="https://jetyu.me/"><meta property="og:site_name" content="Jet&#039;s Notes"><meta property="og:description" content="Jet&amp;#39;s Notes - 在这里分享我在工作和生活中的感想"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://jetyu.me/img/og_image.png"><meta property="article:author" content="Jet Yu"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://jetyu.me"},"headline":"Jet's Notes","image":["https://jetyu.me/img/og_image.png"],"author":{"@type":"Person","name":"Jet Yu"},"description":"Jet&#39;s Notes - 在这里分享我在工作和生活中的感想"}</script><link rel="icon" href="/img/favicon.ico"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">Jet&#039;s Notes</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2017-02-01T03:12:13.000Z" title="2017-02-01T03:12:13.000Z">2017-02-01</time>发表</span><span class="level-item"><time dateTime="2017-02-01T03:12:13.000Z" title="2017-02-01T03:12:13.000Z">2017-02-01</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="level-item">6 分钟读完 (大约952个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/post/retropsective-design-summary">我所理解的响应式设计</a></h1><div class="content"><h3 id="业务背景"><a href="#业务背景" class="headerlink" title="业务背景"></a>业务背景</h3><p>项目现在在使用IBM V6的模板，由于涉及内部金融业务的支付系统，所以每次升级都非常慎重（恩，采取了能不升级就不升级的策略方针）。IBM现在内部都使用V18的模板了，想想落后了多少年啊….但是为了响应公司MobileFirst号召，项目决定可以先让一些Approve页面支持Apple设备。于是把一些响应式设计理念，以及CSS3的新属性，应用到项目里去，这是自己关于PC、移动设备上响应式网站的一次实践的总结。毕竟现在是响应式烂大街的情况了，有些浅显，但是，在实践及总结的过程中，理解了很多原先并不明确的知识，有一些自己的心得和体会，希望能对有做响应式的同学有帮助，如有不正确的地方跪求指出。</p>
+<h3 id="设计原则"><a href="#设计原则" class="headerlink" title="设计原则"></a>设计原则</h3><p><em>移动优先</em><br>优先考虑页面多终端展示（移动设备，PC，Mac等等）<br><em>渐进增强</em><br>为了发挥更大的硬件设备的功能和效率，从下往上兼容（但是个人认为没有必要费力去做IE9以下的兼容，比如IE6啊，IE7啊，不支持CSS3的浏览器啊，稍后我们说不支持原因）</p>
+<h3 id="响应式的选择"><a href="#响应式的选择" class="headerlink" title="响应式的选择"></a>响应式的选择</h3><p>1.Javascript （效率极低）<br>2.CSS3（media-query简单，推荐，适合运行多年的业务系统）<br>3.开源框架（比如Bootstrap，AmazeUI,EasyUI等等，推荐，模板多）</p>
+<p>到底选那种？<br>其实我们讨论之后，首先就抛弃了第1种，也抛弃了第3种，采取了<strong>第2种方法</strong>。<br>因为Procurement的系统是2008年开发的，很多标签比较老，这么多年也没有进行大的系统变更，废弃现在的页面去使用Bootstrap框架，工作量太大不说，由于IBM内部系统也有自己的一套样式模板和开发模板，所以Bootstrap的方案也是不可行的。<br>我不会具体在这里详细说我们是如何实现的，毕竟商业项目，Confidential啊！哈哈，但是我肯定会把你领进响应式设计的大门！具体不懂的，可以评论留言。</p>
+<h3 id="Media-Query属性"><a href="#Media-Query属性" class="headerlink" title="Media-Query属性"></a>Media-Query属性</h3><p>你这么理解就可以：为不同的大小的设备规定了类似于import的CSS规则，保证了实际渲染完成页面的效果，当然也可以为一个页面准备多个不同的CSS样式、</p>
+<h4 id="设备屏幕宽高"><a href="#设备屏幕宽高" class="headerlink" title="设备屏幕宽高"></a>设备屏幕宽高</h4><p>device-width,device-height<br>就是你物理设备大小，比如5.5寸iPhone的大小，4.7寸android的大小等等</p>
+<h4 id="渲染窗口宽高"><a href="#渲染窗口宽高" class="headerlink" title="渲染窗口宽高"></a>渲染窗口宽高</h4><p>width,height<br>这个就是指你窗口大小，比如我可以把窗口最大化啊，拉伸啊，缩小啊等等</p>
+<h4 id="设备方向分辨率"><a href="#设备方向分辨率" class="headerlink" title="设备方向分辨率"></a>设备方向分辨率</h4><p>orientation,resolution<br>比如Mac的Retina屏幕分辨率大小和PC分辨率大小就不一样（最典型的，你在PC截图和Mac截图，然后上传到网上，你就发现，图片大小不一样，就是分辨率和DPI的原因，这2种概念自行Google）</p>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- link元素中的CSS媒体查询 --&gt;</span><br><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; media&#x3D;&quot;(max-width: 800px)&quot; href&#x3D;&quot;link.css&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 样式表中的CSS媒体查询 --&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">@media (max-width: 600px) &#123;</span><br><span class="line">  .test &#123;</span><br><span class="line">    display: none;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>有一篇文章我觉得写得很好，虽然文章是3年前写的，但是对于新手，或者进阶来说，可以避免走很多弯路。<br><a target="_blank" rel="noopener" href="https://isux.tencent.com/code-of-response-web-design.html">https://isux.tencent.com/code-of-response-web-design.html</a></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2017-01-25T08:27:13.000Z" title="2017-01-25T08:27:13.000Z">2017-01-25</time>发表</span><span class="level-item"><time dateTime="2017-01-25T08:27:13.000Z" title="2017-01-25T08:27:13.000Z">2017-01-25</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></span><span class="level-item">12 分钟读完 (大约1846个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/post/wasted-times-review">读《罗曼蒂克消亡史》有感</a></h1><div class="content"><p><img src="https://img1.doubanio.com/lpic/s29232827.jpg" alt="TheWastedTimes_Post"></p>
+<h3 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h3><p>&emsp;&emsp;罗曼蒂克消亡史，英文名：The Wasted Times(翻译的很贴切)</p>
+<h3 id="七故事"><a href="#七故事" class="headerlink" title="七故事"></a>七故事</h3><p>&emsp;&emsp;《罗曼蒂克消亡史》是本短篇小说集，一共七篇小说。一三五七故事背景都发生在现代，电影分别用到了其余的三篇。</p>
+<ul>
+<li>1.人鱼</li>
+<li>2.女演员</li>
+<li>3.鸡</li>
+<li>4.童子鸡</li>
+<li>5.皮囊的诗篇</li>
+<li>6.罗曼蒂克消亡史</li>
+<li>7.第三个X君<br>&emsp;&emsp;买这本书，本意是为了看电影中没有看懂的篇章。导演说了，这是部艺术片，是拍给下个世纪的人看的，就没打算让观众看懂。但看完书以后，书中内容真正和电影有关系的篇幅很少。毕竟是短篇小说集，衔接并不连贯，读下去的欲望也不那么强烈，不过总算在回家的路上看完了，书读百遍，其义自见。这本书给我的第一感觉就是大量描写“性”的篇幅，读完第二遍，第三遍之后，觉得反映的是人性，这不是撕去了罗曼蒂克的皮囊，展现了人类的欲望么？</li>
+</ul>
+<h3 id="鸡"><a href="#鸡" class="headerlink" title="鸡"></a>鸡</h3><p>&emsp;&emsp;书中说了鸡的含义，1.鸡本身。2.一种职业。<br>&emsp;&emsp;其实，这种职业，表面来看是受大家鄙夷的，但在这个笑贫不笑娼的时代，作者并没有直接指出第二个X君去找鸡消遣，是多么的肮脏不堪，多么的颓废，只是在篇尾第二个X君正与娼妓云雨时这样说道：堕落吧，就他平凡的过往与将来而言，他也并不觉得此刻比较更是一种堕落。</p>
+<h3 id="童子鸡"><a href="#童子鸡" class="headerlink" title="童子鸡"></a>童子鸡</h3><p>&emsp;&emsp;更好理解了，1.未成熟的鸡本身。2.处男。<br>&emsp;&emsp;这一篇我认为不仅仅是电影之中的点睛之笔，在书中也算是最耐人寻味的一篇。<br>&emsp;&emsp;童子鸡，就是乡下有老相好的那位，电影中没有过多的描述老相好，但是书中说了，童子鸡的老相好，是个残疾，面目狰狞，长的并不好看。可笑的是，童子鸡口口声声说，等挣了钱要回去娶那位老相好。但世道变了，童子鸡杀完人之后，到被袭击，再到爬到妓女(霍思燕饰)客厅里的椅子上。窗外的枪声，炮火声，把属于大佬，野心家，明星的罗曼蒂克都湮灭了，结果，市井里最卑微的的那一对男女却意外的通过“钥匙”开启了自己的罗曼蒂克，看似挺美好，但也不全是，书中的结局也蛮悲惨的。<br>&emsp;&emsp;妓女一直向一位叫老张(中共地下党，电影里貌似是赵老板吧)的恩客求助，外面世道不好的时候，童子鸡找不到工作，她便经常向老张借钱跟童子鸡过日子，老张知道后很生气，警告过妓女，童子鸡是绝对不会像你救他那样救你的，但妓女坚持己见，老张拗不过，还是资助了她。后来妓女又求老张给童子鸡谋一份差事，于是童子鸡成了地下工作者，连带他在乡下的表哥也加入了地下党(表哥最后官做的最大，但在文革中也死的最惨)。后来童子鸡狠心的抛弃了妓女，找了一位革命工作者做妻子。解放后，上海清理娼妓，妓女被抓去劳改，童子鸡在路上撞见了，以他当时的级别完全可以救下妓女，但他不愿意揭露自己过去的这种“肮脏”的往事，为了自己的前程，放任妓女被警察带走，老张的预言成真。1968年运动开始了，童子鸡惨死于文革中，临死前他终于明白当天拍死北方的朋友时，自己为什么那么兴奋。<br>&emsp;&emsp;童子鸡，也许是小说中最令人作呕的人物之一。<br>&emsp;&emsp;从对老相好的誓言，到杀人时的狠厉，到妓女怀中的迷失，再到抛弃时的冷漠，何尝不都是罗曼蒂克的消亡。认真坚持的信念在生存面前不堪一击，永恒承诺的誓言在遇到妓女后瞬间消亡。</p>
+<h3 id="罗曼蒂克"><a href="#罗曼蒂克" class="headerlink" title="罗曼蒂克"></a>罗曼蒂克</h3><p>&emsp;&emsp;书名起的蛮有意思的。Romantic，又称浪漫，我专门去查过，含义为：意为纵情；富有诗意，充满幻想；不拘小节(常指同性或异性情侣关系而言)。<br>&emsp;&emsp;七篇小说主题都离不开一个字：性。这是人类最原始的欲望。金钱，性，身体都是交易的筹码，不知道程耳为何要把性做为主旋律，围绕性展开了故事的一切。也许是导演认为(臆测)，剥去罗曼蒂克式爱情的外衣，也就单纯的留下性了。就像《非诚勿扰》里面，车晓问葛优一样，您觉得爱情的基础就是性吗？葛优回答：不完全是，可是要没有，那肯定不能叫爱情，顶多叫交情。其实我觉得也不是不能叫爱情，这种交情会成为了爱情的最高境界：柏拉图式爱情。排斥肉欲，追求精神的纯洁爱情，不去逾越道德观念和传统习俗的障碍，是那么的富有诗意，让人充满期待。<br>&emsp;&emsp;但我和葛优一样，做不到。毕竟每个人都有自己的欲望和追求，这是本能，也是权利。</p>
+<h3 id="X君"><a href="#X君" class="headerlink" title="X君"></a>X君</h3><p>&emsp;&emsp;书中三次写到了这个X君，我看了几遍之后，我觉得作者笔下的这个X君，就是人类的镜像。<br>&emsp;&emsp;每个人都是这个X君，七篇文章看似混乱，杂乱无章，毫无头绪，其实全篇都在通过描述性来来反映人性:在社会的压力下所有人都在为了自己，为了权利、为了性欲、为了“爱情”而拼搏坚持。但认清现实的时候，也会坦然放弃。就像女演员的丈夫，为了荣华富贵，答应了戴老板的条件一样，心态是那么的坦然，淡定。</p>
+<h3 id="消亡史"><a href="#消亡史" class="headerlink" title="消亡史"></a>消亡史</h3><p>&emsp;&emsp;总之，罗曼蒂克消亡史，不仅仅是罗曼蒂克的消亡，也是整个时代的消亡史。它在成长时是那么的令人期待，就如同花儿般，在绽放时有多么的绚丽，在湮灭时就有多么的颓废。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2017-01-13T03:12:13.000Z" title="2017-01-13T03:12:13.000Z">2017-01-13</time>发表</span><span class="level-item"><time dateTime="2017-01-13T03:12:13.000Z" title="2017-01-13T03:12:13.000Z">2017-01-13</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%BC%94%E8%AE%B2/">演讲</a></span><span class="level-item">2 分钟读完 (大约252个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/post/tmc-role-invocation2">ToastMasters:Invocation - 2nd</a></h1><div class="content"><p>2017/01/13  IBM Dalian TMC Regular English Meeting</p>
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>Hi everyone,<br>&emsp;&emsp;Today I will share a new comedy to all.<br>&emsp;&emsp;Last week, I went to the cinema with my friends. Chinese name is Qing Sheng, the main idea is the starring has an affair, which triggers a series of incredible, ridiculous stories. The film has a lot of jokes, no less than Xia Luo Te Fan Nao.<br>&emsp;&emsp;As everyone knows, a part of famous people had affairs in the past year. Maybe the theme of the story also catered with it. At the end of the story, it turned out to be just a dream and the starring changes his mind to appreciate current partner at last.<br>&emsp;&emsp;Actually, most of us don’t know if the love can go on to the end of our life, but at least now I am lucky that no need to consider it,I am available , The only thing we could do is to be honest, to shoulder responsibility, to understand each other rather than focus on the final result.</p>
+<h3 id="表现"><a href="#表现" class="headerlink" title="表现"></a>表现</h3><p><img src="https://ooo.0o0.ooo/2017/01/13/587871a20291c.jpg" alt="824533451277100313.jpg"><br><img src="https://ooo.0o0.ooo/2017/01/13/587871a2068a5.jpg" alt="312630276174209856.jpg"><br><img src="https://ooo.0o0.ooo/2017/01/13/587871a31543e.jpg" alt="65541056624944168.jpg"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>值得肯定的点：比第一次好很多，但是还是有些紧张。</li>
+<li>需要改善的点：加强身体语言的运用。</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2017-01-12T01:12:13.000Z" title="2017-01-12T01:12:13.000Z">2017-01-12</time>发表</span><span class="level-item"><time dateTime="2017-01-12T01:12:13.000Z" title="2017-01-12T01:12:13.000Z">2017-01-12</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="level-item">2 分钟读完 (大约274个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/post/https-apply-config">免费Https证书:Let’s Encrypt申请与配置</a></h1><div class="content"><h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><p>现在的博客主要是使用Hexo+Coding Pages服务，SSL证书一直使用的是Cloudflare的SSL证书和CDN加速服务，但是国外没问题，国内的访问速度就比较慢了。<br>Let’s Encrypt证书不但免费，还非常简单，虽然每次只有 90 天的有效期，但可以通过脚本定期更新，配好之后一劳永逸。</p>
+<ul>
+<li>个人域名（万网买的）</li>
+<li>Let’s Encrypt SSL证书（Coding Pages间接提供）</li>
+<li>Coding Pages服务（免费哦，但是我是双托管了）</li>
+</ul>
+<h3 id="选择原因"><a href="#选择原因" class="headerlink" title="选择原因"></a>选择原因</h3><ul>
+<li>Coding国内访问速度快</li>
+<li>小绿锁hin好看</li>
+<li>CF的SSL证书生效速度太慢</li>
+<li>装逼</li>
+</ul>
+<h3 id="更换步骤"><a href="#更换步骤" class="headerlink" title="更换步骤"></a>更换步骤</h3><p>万网设置（IP我自己ping出来的，是美国IP，但是国内访问速度很快！）<br><img src="https://ooo.0o0.ooo/2017/01/12/5877314b3b484.png" alt="BaiduShurufa_2017-1-12_15-32-40.png"><br>Coding设置（开启HTTPS加密）<br><img src="https://ooo.0o0.ooo/2017/01/12/5877314b85cc8.png" alt="BaiduShurufa_2017-1-12_15-32-59.png"><br><img src="https://ooo.0o0.ooo/2017/01/12/5877314b89cf5.png" alt="BaiduShurufa_2017-1-12_15-33-12.png"></p>
+<h3 id="查看结果"><a href="#查看结果" class="headerlink" title="查看结果"></a>查看结果</h3><p>生效了！<br><img src="https://ooo.0o0.ooo/2017/01/12/5877326b8dd60.png" alt="BaiduShurufa_2017-1-12_15-36-33.png"></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2017-01-07T03:12:13.000Z" title="2017-01-07T03:12:13.000Z">2017-01-07</time>发表</span><span class="level-item"><time dateTime="2017-01-07T03:12:13.000Z" title="2017-01-07T03:12:13.000Z">2017-01-07</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%BC%94%E8%AE%B2/">演讲</a></span><span class="level-item">1 分钟读完 (大约213个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/post/tmc-role-invocation1">ToastMasters:Invocation - 1st</a></h1><div class="content"><p>2017/01/06  IBM Dalian TMC Regular Meeting</p>
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>Hi everyone,<br>&emsp;&emsp;I am Jet,Today I will share the reason that why I entered IBM TMC,It’s the second time for me to speaking English as a guest!today I prepared the speech,last time my poor performance on the stage,maybe I felt too nervous at one point,I tend to be lost,not knowing what to do or how to do what I am doing.I am working for IGA Japan Project and my major working language is Japanese now.Being lack of communication in English,I really want to improve my spoken English,Luckily,Brad introduced me this club,Then I came here,with some tension and fear, but more courage,I am no longer worried about making mistakes.<br>&emsp;&emsp;Hope we can communicate with each other and make progress together.Thank you very much! </p>
+<h3 id="表现"><a href="#表现" class="headerlink" title="表现"></a>表现</h3><p><img src="https://ooo.0o0.ooo/2017/01/11/5875e19258052.jpg" alt="pic1.jpg"><br><img src="https://ooo.0o0.ooo/2017/01/11/5875e1927bdeb.jpg" alt="pic2.jpg"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>值得肯定的点：第一次上台，心态不错，准备充分</li>
+<li>需要改善的点：即兴，肢体语言的运用,表情</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2017-01-03T03:12:13.000Z" title="2017-01-03T03:12:13.000Z">2017-01-03</time>发表</span><span class="level-item"><time dateTime="2017-01-03T03:12:13.000Z" title="2017-01-03T03:12:13.000Z">2017-01-03</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></span><span class="level-item">6 分钟读完 (大约944个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/post/2017-annual-plan">2017 全年计划</a></h1><div class="content"><h3 id="年初寄语"><a href="#年初寄语" class="headerlink" title="年初寄语"></a>年初寄语</h3><p>正好今天休假，所以说赶紧把2017年的计划列出来！新的一年，一个全新的开始，这一年，我希望自己能快乐地跑起来，能飞速的成长，能跟世界产生更多的连接，遇见更好的自己。</p>
+<h3 id="身体健康"><a href="#身体健康" class="headerlink" title="身体健康"></a>身体健康</h3><p>去年达成了减肥30斤的目标，今年的目标就要提升一下，保持现有的体型，练出肌肉，争取练出6块腹肌。由于2016年感冒频率明显加大，以前胖的时候也没有出现这样的情况，所以2017年不仅要保持现有身材，而且身体要强壮。</p>
+<h3 id="理财计划"><a href="#理财计划" class="headerlink" title="理财计划"></a>理财计划</h3><p>2015年中牛市结束，2015年到2016年末，指数一直在3000点左右，而且每次遇到大跌之后（刘士余上台），国家队总要出手去救市，所以，这震荡1年，股市跌了许多了，而且IPO现在特别多，所以注册制还得搁置一段时间，但是我认为现在最好的机会就是定投基金，所以每月拿出一部分钱来进行基金定投。(赔我觉得肯定不多，但是我敢肯定3000点就是底，因为我周围的股神们，都消失了，大妈也不炒股了，所以我判断应该没啥问题的)</p>
+<h3 id="技术提升"><a href="#技术提升" class="headerlink" title="技术提升"></a>技术提升</h3><p>今年争取利用业余时间做2-3个完整的AngularJS和Bootstrap项目，对学完AngularJS和Bootstrap知识的巩固。</p>
+<h3 id="人脉拓展"><a href="#人脉拓展" class="headerlink" title="人脉拓展"></a>人脉拓展</h3><p>不单单是和你这个层次上的人扩展，向上扩展人脉对于自己的提升是非常大的，但是其实这个蛮难的，因为人一出生基本就定格了，因为你的教育，环境，家境等等决定了，你就是这个层次上的人，而这个层次的流动性不大，翻身可能性比较小，但是也有，比如刘强东这样的完全属于幸存者偏差，我承认，他很努力，他很优秀，但是有时候，时势造英雄。我当时转载过一篇文章，写的就是这个，成就大事者，缺一不可。</p>
+<h3 id="外语提升"><a href="#外语提升" class="headerlink" title="外语提升"></a>外语提升</h3><p>讲真，现在虽然在外企工作，但是读写蛮多的，听说还是差，准备去考一下托业，也得知公司有ToastMasters Club，每周五做演讲，去了好几次了，感觉气氛真的很好啊，很多小伙伴，从不敢张口说英语，到现在通过抽纸条的方式确立Key word，思考20s后，即兴演讲，不仅仅能锻炼口语，而且可以提升领导力，我觉得中国人总是过于腼腆，有时候不会加上很多肢体语言来表达自己的意思，非常死板，通过这个TMC，也认识了不少小伙伴，这也是对于我上一条人脉的积极补充，认识更多的人，结交更多的同事。</p>
+<h3 id="读书计划"><a href="#读书计划" class="headerlink" title="读书计划"></a>读书计划</h3><p>去年看的书也还算凑合，今年要搬到新房子那里，上下班时间要在班车上度过了，能腾出时间看书了，为此专门开了一篇Blog：<a href="https://jetyu.me/post/2017-reading-plan.html">2017书单</a></p>
+<h3 id="个人感情"><a href="#个人感情" class="headerlink" title="个人感情"></a>个人感情</h3><p>今年又又又要说感情方面了，去年经历了一段感情，来得快去的也快，也没什么留恋的了。所以还是看情况，随缘吧，Chase always。</p>
+<p>以上。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2017-01-01T03:27:13.000Z" title="2017-01-01T03:27:13.000Z">2017-01-01</time>发表</span><span class="level-item"><time dateTime="2017-01-25T03:27:13.000Z" title="2017-01-25T03:27:13.000Z">2017-01-25</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></span><span class="level-item">2 分钟读完 (大约346个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/post/2017-reading-plan">2017 读书计划(持续更新...)</a></h1><div class="content"><p>杨绛先生曾说，你的主要问题在于读书不多而想得太多。在这个浮躁的年代，读书没法让你一夜暴富、走上人生巅峰，但是，它仍然是通往自由最短的路。<br>写在前面的话：经济·理财这部分Section没打算读完，因为张五常的《经济解释》就够你喝一壶的了。。</p>
+<p><strong>书单状态更新时间：2017/04/07</strong></p>
+<h3 id="科技·技术"><a href="#科技·技术" class="headerlink" title="科技·技术"></a>科技·技术</h3><table>
+<thead>
+<tr>
+<th align="center">书名</th>
+<th align="center">完成时间</th>
+<th align="center">心得</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Javascript编程艺术</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Bootstrap开发进阶</td>
+<td align="center">In Process</td>
+<td align="center">&nbsp;</td>
+</tr>
+</tbody></table>
+<h3 id="人文·历史"><a href="#人文·历史" class="headerlink" title="人文·历史"></a>人文·历史</h3><table>
+<thead>
+<tr>
+<th align="center">书名</th>
+<th align="center">完成时间</th>
+<th align="center">心得</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">《罗曼蒂克消亡史》</td>
+<td align="center">2017/01/22</td>
+<td align="center"><a href="https://jetyu.me/post/wasted-times-review.html">被浪费的时光</a></td>
+</tr>
+<tr>
+<td align="center">《霍乱时期的爱情》</td>
+<td align="center">2017/02/12</td>
+<td align="center">Pending</td>
+</tr>
+<tr>
+<td align="center">《史蒂夫·乔布斯传》</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">《敦煌》</td>
+<td align="center">2017/02/04</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center">《谈修养》</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">《晚清最后十八年：从甲午战争到辛亥革命》</td>
+<td align="center">2017/02/18</td>
+<td align="center">In Process</td>
+</tr>
+<tr>
+<td align="center">《万历十五年》</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">《激荡三十年》</td>
+<td align="center">2017/01/29</td>
+<td align="center"><a href="https://jetyu.me/post/three-decades-review.html">读《激荡三十年》有感</a></td>
+</tr>
+<tr>
+<td align="center">《孤独深处》</td>
+<td align="center"></td>
+<td align="center">&nbsp;</td>
+</tr>
+</tbody></table>
+<h3 id="社科·心理学"><a href="#社科·心理学" class="headerlink" title="社科·心理学"></a>社科·心理学</h3><table>
+<thead>
+<tr>
+<th align="center">书名</th>
+<th align="center">完成时间</th>
+<th align="center">心得</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">《戒了吧，拖延症》</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">《巨婴国》</td>
+<td align="center">2017/02/28</td>
+<td align="center"><a href="https://jetyu.me/post/giant-baby-review.html">读《巨婴国》有感</a></td>
+</tr>
+</tbody></table>
+<h3 id="经济·理财"><a href="#经济·理财" class="headerlink" title="经济·理财"></a>经济·理财</h3><table>
+<thead>
+<tr>
+<th align="center">书名</th>
+<th align="center">完成时间</th>
+<th align="center">心得</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">《经济解释》</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">《聪明的投资者》</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">《大空头》</td>
+<td align="center"></td>
+<td align="center">&nbsp;</td>
+</tr>
+</tbody></table>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2016-12-26T01:12:13.000Z" title="2016-12-26T01:12:13.000Z">2016-12-26</time>发表</span><span class="level-item"><time dateTime="2016-12-26T01:12:13.000Z" title="2016-12-26T01:12:13.000Z">2016-12-26</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></span><span class="level-item">7 分钟读完 (大约1112个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/post/2016-annual-summary">2016 年终总结</a></h1><div class="content"><p>一年又这么过去了，其实不是非常愿意写年终总结的，但是想一想，还是写吧，每天吃饭都嫌累呢。。。<br>这是<a href="https://jetyu.me/post/2016-annual-plan.html">2016年个人计划与目标</a>，年末了，总结一下，确实也算是<strong>大部分达成</strong>了。</p>
+<p>先说说工作吧，做为一个Single dog来说，工作可以说是看见别人秀恩爱的时候最能’打发’时间的事情了。</p>
+<p>回顾过去2016年，前半年过的就像机关枪一样,1月份买房,2月份买房,3月份恋爱,7月份分手,8月份旅游</p>
+<p>然后这上半年就这么浑浑噩噩的过去了，其实说句良心话，这上半年，工作上真的没有一些提升，甚至我觉得，“你把1年的经验用了3年了”这种感受越来越强烈了，工作有时候我认为只是生活的一部分，我知道，我的家境，条件要好于常人，但是这也不能成为我堕落的理由，能在我身体健康的情况下，去尽最大的努力干好现在的工作就好，在我看来，加班只能说是感动了自己，年终发奖金的时候，没得到奖金的人会说，我没功劳还有苦劳呢，呵呵，真的，我有时候特别不爱这么想，可能是失望的次数多了，也就不抱有希望了，苦劳要真有用，还要功劳干什么？可是每天就是定例作业，PSR这一类很基础的，大量的都是业务相关的知识，说实在的，我当时做agile share的时候，给大家讲git的好处，最后居然给了我8小时的claim.有时候，我甚至认为防火墙是个好东西，真是穿越长城，走向世界，这点我深信不疑，人不能总做井底之蛙，时刻走出去看看，居安思危才是最重要的，虽然现在的项目挺稳定的，但是我一直就像着做Web开发，但是主机这个东西，不到1个月也就熟悉了，之后全是业务方面的知识，这个真的需要积累，又要调查，又要看代码，出力不讨好。</p>
+<p>技术提升方面，总得来说前端断断续续起码是学下去了，跟着百度IFE做了好些任务，最后终于坚持下来了，做任务其实成了那个时候的精神支柱，学习使我更加有动力了，我知道，一个人的时候，是能提升自己的时候，在这个阶段，一定想方设法去提升自己，因为你要记住，你若盛开，清风自来，我从来不相信穷小子和白富美的故事，就算有，那也是幸存者偏差，道理很简单，你俩不对等啊，各方面，经济，眼光，气质等等等，都是日后分手的导火索。</p>
+<p>再说说健康问题，因为前些天，我大学同学的同事在办公司猝死了，就是让女人们每天都要剁手的那个公司，猝死前毫无征兆，那哥们是个经常锻炼的人，身体很壮实，据说是心肌隔塞，真的太可惜了，有时候我也想不通，为什么有些人拼死拼活去加班，去挣钱？经常这样想，有些可笑了，何不食肉糜？但是有些事情，一旦错过，是无法挽回的。所以身体健康最为重要。今年比较好的一点是，减肥了，瘦下来了，人也精神很多，也更自信了，以前根本不敢捯饬自己，现在有事没事就出去逛街。</p>
+<p>牢骚有些多，其实有时候，注重感情的我，就是那么不甘心，但是事后也就好了。</p>
+<p>工作说的有些少，感情说的比较多，今年先就这样吧。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2016-12-20T05:02:13.000Z" title="2016-12-20T05:02:13.000Z">2016-12-20</time>发表</span><span class="level-item"><time dateTime="2016-12-20T05:02:13.000Z" title="2016-12-20T05:02:13.000Z">2016-12-20</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="level-item">1 分钟读完 (大约198个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/post/dir-transfer-repo">如何将已有目录转化为Git项目并托管到Github仓库</a></h1><div class="content"><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>打开命令行终端，进入项目所在的本地目录，将目录初始化为一个 Git 项目</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>此时会在目录中创建一个 .git 隐藏文件夹</li>
+</ul>
+<h3 id="放进新的Git仓库"><a href="#放进新的Git仓库" class="headerlink" title="放进新的Git仓库"></a>放进新的Git仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add </span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果你本地已经有 .gitignore 文件，会按照已有规则过滤不需要添加的文件。如果不想要添加所有文件，可以把 . 符号换成具体的文件名</li>
+</ul>
+<h3 id="提交到仓库"><a href="#提交到仓库" class="headerlink" title="提交到仓库"></a>提交到仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m “Initial”</span><br></pre></td></tr></table></figure>
+
+<h3 id="建立远程仓库"><a href="#建立远程仓库" class="headerlink" title="建立远程仓库"></a>建立远程仓库</h3><p>建好的仓库类似于这种<br><a target="_blank" rel="noopener" href="https://github.com/jetyu/test.git">https://github.com/jetyu/test.git</a>  (示例而已)</p>
+<h3 id="关联远程仓库"><a href="#关联远程仓库" class="headerlink" title="关联远程仓库"></a>关联远程仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin https:&#x2F;&#x2F;github.com&#x2F;jetyu&#x2F;test.git </span><br></pre></td></tr></table></figure>
+<ul>
+<li>$ git remote -v 查看结果</li>
+</ul>
+<h3 id="提交到github仓库"><a href="#提交到github仓库" class="headerlink" title="提交到github仓库"></a>提交到github仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p>无</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2016-11-28T08:27:13.000Z" title="2016-11-28T08:27:13.000Z">2016-11-28</time>发表</span><span class="level-item"><time dateTime="2016-11-28T08:27:13.000Z" title="2016-11-28T08:27:13.000Z">2016-11-28</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="level-item">10 分钟读完 (大约1530个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/post/learning-bootstrap-summary">Bootstrap总结</a></h1><div class="content"><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Bootstrap框架学完很久了，跟着项目组也做了几个小型项目，Bootstrap框架有些生疏了，还是自己来总结一下。<br>虽然现在快出4.0了，但是我认为万变不离其宗，而且我学习的时候正好是3.x的时代。<br>示例代码不会再去写了，毕竟官方文档写的要比我好很多，而且忘记的时候去看一下就可以了。<br>官网：<a target="_blank" rel="noopener" href="http://getbootstrap.com/">http://getbootstrap.com/</a><br>练习：<a target="_blank" rel="noopener" href="https://github.com/jetyu/Front-End/tree/master/Bootstrap">https://github.com/jetyu/Front-End/tree/master/Bootstrap</a></p>
+<p>转载<br><a target="_blank" rel="noopener" href="https://github.com/ufologist/bootstrap-cheat-sheet">Bootstrap(v3.2.0) Cheat Sheet</a><br><em>v0.1.0 2014-8-15 by <a target="_blank" rel="noopener" href="https://github.com/ufologist">Sun</a></em></p>
+<p>Bootstrap的文档非常详尽, 每个组件每个示例都能够方便地在日常开发中快速使用, 真心感谢Bootstrap给我们提供一切, 切实地提高了我们的工作效率.</p>
+<p>建议初学者一字不落地将文档看一遍, 上手之后, 其实我们使用频率最高的就是某些组件具体的HTML结构和CSS class, 这些东西如果能够背下来, 必定会让你的开发效率更上一层楼.</p>
+<p>但我记忆力一直不咋的, 每次使用过一个组件后, 下次又得参看文档, 每天不停地打开Bootstrap, 翻来覆去地CTRL + F去找这些组件的使用方法, 并确认Bootstrap是否已经有实现了. 这些东西分散在文档中(Getting started, CSS, Components, JavaScript), 找寻时详尽的文档反而变成了效率的绊脚石.</p>
+<p>其实我需要的是一份简洁的列表, 告诉我Bootstrap实现了哪些东西, 大概涉及到哪些CSS class, 以方便我快速的应用, 将Bootstrap提供的一切都用起来(榨干框架是我们的宗旨), 不重复造轮子, 体现出框架的价值.</p>
+<p>也有小伙伴遇到了同样的问题并打造出了纸质版的<a target="_blank" rel="noopener" href="http://www.bootstrapcheatsheets.com/about/">Bootstrap Cheat Sheets</a>, 但有些列表不够详尽, 或者版本没有和Bootstrap同步, 反正就是没有找到我想要的东西, 因此我自己做了一份markdown版的, 在Sublime Text中可以非常方便的定位大纲内容, 相当的easy!</p>
+<p>如果你在使用过程中有任何意见建议, 欢迎<a target="_blank" rel="noopener" href="https://github.com/ufologist/bootstrap-cheat-sheet">fork</a>出自己的版本或者提出<a target="_blank" rel="noopener" href="https://github.com/ufologist/bootstrap-cheat-sheet/issues/new">issue</a>.</p>
+<p><strong>推荐的使用方法</strong></p>
+<p>将<a target="_blank" rel="noopener" href="https://github.com/ufologist/bootstrap-cheat-sheet/raw/master/README.md">README.md</a>下载到电脑上, 在Sublime Text中打开(Goto Symbol), 效果如下:</p>
+<p><img src="http://ufologist.github.io/bootstrap-cheat-sheet/img/preview.png" alt="preview"></p>
+<p>附赠非常实用的<a target="_blank" rel="noopener" href="http://ufologist.github.io/bootstrap-cheat-sheet/bootstrap-template.html">Bootstrap页面模版</a>, <a target="_blank" rel="noopener" href="http://ufologist.github.io/bootstrap-cheat-sheet/bootstrap-examples.html">Bootstrap示例集合</a>, <a target="_blank" rel="noopener" href="http://ufologist.github.io/bootstrap-cheat-sheet/bootstrap-site-template.html">Bootstrap网页模版</a>, 让我们可以更快的找到想要的东西. 如果想快速搭一个基于 Bootstrap 的页面, <a target="_blank" rel="noopener" href="http://www.layoutit.com/build">LayoutIt!</a>值得一试.</p>
+<h3 id="doctype"><a href="#doctype" class="headerlink" title="doctype"></a>doctype</h3><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;&lt;/html&gt;</code></pre>
+<h3 id="mobile-first"><a href="#mobile-first" class="headerlink" title="mobile first"></a>mobile first</h3><pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</code></pre>
+<h3 id="help-class"><a href="#help-class" class="headerlink" title="help class"></a>help class</h3><pre><code>text-left    text-lowercase  text-primary bg-primary
+text-center  text-uppercase  text-success bg-success
+text-right   text-capitalize text-info    bg-info
+text-justify                 text-warning bg-warning
+text-nowrap                  text-danger  bg-danger
+                             text-muted
+                             text-hide
+                             sr-only.sr-only-focusable
+
+pull-left pull-right clearfix
+center-block
+show hidden
+
+span.caret
+&lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/span&gt;&lt;span class=&quot;sr-only&quot;&gt;Close&lt;/span&gt;&lt;/button&gt;</code></pre>
+<h3 id="grid"><a href="#grid" class="headerlink" title="grid"></a>grid</h3><pre><code>xs sm md lg
+
+Media queries
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) &#123;&#125;
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) &#123;&#125;
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) &#123;&#125;
+
+container container-fluid
+col-*-*
+col-*-offset-*
+col-*-push-*     col-*-pull-*
+visible-*-*      hidden-*
+visible-print-*  hidden-print</code></pre>
+<h3 id="basic-style"><a href="#basic-style" class="headerlink" title="basic style"></a>basic style</h3><pre><code>h1 .h1 small .small
+body font-size: 14px; line-height: 1.428
+p margin-bottom: 10px(half line-height)
+.lead
+
+mark
+del s
+ins u
+small strong em
+code kbd pre var samp
+abbr .initialism
+address
+blockquote footer .blockquote-reverse
+ul ol list-unstyled list-inline
+dl .dl-horizontal</code></pre>
+<h3 id="nav"><a href="#nav" class="headerlink" title="nav"></a>nav</h3><pre><code>ul.nav.nav-tabs nav-pills nav-stacked nav-justified
+
+navbar navbar-default&gt;container&gt;navbar-header&gt;navbar-toggle+navbar-brand
+       navbar-fixed-top        &gt;collapse navbar-collapse&gt;nav navbar-nav
+       navbar-fixed-bottom                              &gt;navbar-form
+       navbar-static-top                                &gt;navbar-btn
+       navbar-inverse                                   &gt;navbar-text navbar-link
+                                                        &gt;navbar-left navbar-right</code></pre>
+<h3 id="tab"><a href="#tab" class="headerlink" title="tab"></a>tab</h3><pre><code>ul.nav.nav-tabs&gt;li.active&gt;a[href=&quot;#home&quot; data-toggle=&quot;tab&quot;]
+.tab-content&gt;.tab-pane.fade.active#home</code></pre>
+<h3 id="jumbotron"><a href="#jumbotron" class="headerlink" title="jumbotron"></a>jumbotron</h3><pre><code>.jumbotron&gt;h1</code></pre>
+<h3 id="page-header"><a href="#page-header" class="headerlink" title="page header"></a>page header</h3><pre><code>.page-header&gt;h1</code></pre>
+<h3 id="breadcrumb"><a href="#breadcrumb" class="headerlink" title="breadcrumb"></a>breadcrumb</h3><pre><code>ol.breadcrumb</code></pre>
+<h3 id="glyphicon"><a href="#glyphicon" class="headerlink" title="glyphicon"></a>glyphicon</h3><pre><code>span.glyphicon.glyphicon-*</code></pre>
+<h3 id="button"><a href="#button" class="headerlink" title="button"></a>button</h3><pre><code>&lt;button&gt; &lt;a&gt; &lt;input&gt;
+btn btn-default btn-xs btn-block active
+    btn-primary btn-sm           disabled .disabled
+    btn-success btn-lg
+    btn-info
+    btn-warning
+    btn-danger
+    btn-link</code></pre>
+<h4 id="stateful"><a href="#stateful" class="headerlink" title="stateful"></a>stateful</h4><pre><code>&lt;button type=&quot;button&quot; id=&quot;example-btn&quot; data-loading-text=&quot;Loading...&quot; class=&quot;btn btn-primary&quot;&gt;submit&lt;/button&gt;
+$(&#39;#example-btn&#39;).click(function() &#123;
+    var btn = $(this);
+    btn.button(&#39;loading&#39;);
+    // btn.button(&#39;complete&#39;); // data-complete-text=&quot;html&quot;
+    $.ajax(&#39;...&#39;).always(function() &#123;
+        btn.button(&#39;reset&#39;);
+    &#125;);
+&#125;);</code></pre>
+<h4 id="toggle"><a href="#toggle" class="headerlink" title="toggle"></a>toggle</h4><pre><code>&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; data-toggle=&quot;button&quot;&gt;Single toggle&lt;/button&gt;</code></pre>
+<h4 id="checkbox"><a href="#checkbox" class="headerlink" title="checkbox"></a>checkbox</h4><pre><code>&lt;div class=&quot;btn-group&quot; data-toggle=&quot;buttons&quot;&gt;
+    &lt;label class=&quot;btn btn-primary active&quot;&gt;
+        &lt;input type=&quot;checkbox&quot; checked&gt;Option 1 (pre-checked)
+    &lt;/label&gt;
+    &lt;label class=&quot;btn btn-primary&quot;&gt;
+        &lt;input type=&quot;checkbox&quot;&gt;Option 2
+    &lt;/label&gt;
+    &lt;label class=&quot;btn btn-primary&quot;&gt;
+        &lt;input type=&quot;checkbox&quot;&gt;Option 3
+    &lt;/label&gt;
+&lt;/div&gt;</code></pre>
+<h4 id="radio"><a href="#radio" class="headerlink" title="radio"></a>radio</h4><pre><code>&lt;div class=&quot;btn-group&quot; data-toggle=&quot;buttons&quot;&gt;
+    &lt;label class=&quot;btn btn-primary active&quot;&gt;
+        &lt;input type=&quot;radio&quot; name=&quot;options&quot; checked&gt;Option 1 (preselected)
+    &lt;/label&gt;
+    &lt;label class=&quot;btn btn-primary&quot;&gt;
+        &lt;input type=&quot;radio&quot; name=&quot;options&quot;&gt;Option 2
+    &lt;/label&gt;
+    &lt;label class=&quot;btn btn-primary&quot;&gt;
+        &lt;input type=&quot;radio&quot; name=&quot;options&quot;&gt;Option 3
+    &lt;/label&gt;
+&lt;/div&gt;</code></pre>
+<h3 id="button-group"><a href="#button-group" class="headerlink" title="button group"></a>button group</h3><pre><code>div.btn-group&gt;button btn-group-xs btn-group-sm btn-group-lg
+div.btn-group&gt;ul.dropdown-menu
+div.btn-toolbar&gt;div.btn-group
+btn-group-vertical
+.btn-group.btn-group-justified</code></pre>
+<h3 id="img"><a href="#img" class="headerlink" title="img"></a>img</h3><pre><code>img.img-responsive
+   .img-rounded.img-circle.img-thumbnail</code></pre>
+<h3 id="table"><a href="#table" class="headerlink" title="table"></a>table</h3><pre><code>table .table .table-striped .table-bordered .table-hover .table-condensed
+tr.active td.success.info.warning.danger
+div.table-responsive</code></pre>
+<h3 id="form"><a href="#form" class="headerlink" title="form"></a>form</h3><pre><code>form .form-inline .form-horizontal
+.form-group .has-success/warning/error .has-feedback .form-control-feedback .form-control
+.checkbox&gt;label&gt;input:checkbox radio
+label.checkbox-inline radio-inline
+.form-control-static
+disabled .disabled readonly
+.input-sm .input-lg
+.form-group-sm .form-group-lg
+.help-block</code></pre>
+<h3 id="input-group"><a href="#input-group" class="headerlink" title="input group"></a>input group</h3><pre><code>input-group input-group-lg input-group-sm
+span.input-group-addon
+span.input-group-btn&gt;button</code></pre>
+<h3 id="label-badge-alert"><a href="#label-badge-alert" class="headerlink" title="label/badge/alert"></a>label/badge/alert</h3><pre><code>span.label.label-default
+           label-primary
+           label-success
+           label-info
+           label-warning
+           label-danger
+
+span.badge
+
+.alert.alert-success&gt;strong
+       alert-info
+       alert-warning
+       alert-danger
+.fade.in
+a.alert-link</code></pre>
+<h3 id="panel"><a href="#panel" class="headerlink" title="panel"></a>panel</h3><pre><code>.panel.panel-default&gt;.panel-heading&gt;.panel-title
+       panel-primary&gt;.panel-body
+       panel-success&gt;.panel-footer
+       panel-info   &gt;table.table
+       panel-warning
+       panel-danger</code></pre>
+<h3 id="collapse-accordion"><a href="#collapse-accordion" class="headerlink" title="collapse/accordion"></a>collapse/accordion</h3><pre><code>.collapse
+.collapse.in
+.collapsing
+
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#demo&quot;&gt;simple collapsible&lt;/button&gt;
+&lt;div id=&quot;demo&quot; class=&quot;collapse in&quot;&gt;collapse content&lt;/div&gt;
+
+&lt;div class=&quot;panel-group&quot; id=&quot;accordion&quot;&gt;
+    &lt;div class=&quot;panel panel-default&quot;&gt;
+        &lt;div class=&quot;panel-heading&quot;&gt;
+            &lt;h4 class=&quot;panel-title&quot;&gt;
+                &lt;a data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#collapse1&quot;&gt;Collapsible Group Item #1&lt;/a&gt;
+            &lt;/h4&gt;
+        &lt;/div&gt;
+        &lt;div id=&quot;collapse1&quot; class=&quot;panel-collapse collapse in&quot;&gt;
+            &lt;div class=&quot;panel-body&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<h3 id="list-group"><a href="#list-group" class="headerlink" title="list group"></a>list group</h3><pre><code>ul.list-group&gt;.list-group-item&gt;span.badge
+.list-group&gt;a.list-group-item.active.disabled&gt;h4.list-group-item-heading
+                                              p.list-group-item-text
+              list-group-item-success
+              list-group-item-info
+              list-group-item-warning
+              list-group-item-danger</code></pre>
+<h3 id="thumbnail"><a href="#thumbnail" class="headerlink" title="thumbnail"></a>thumbnail</h3><pre><code>a.thumbnail&gt;img
+.thumbnail&gt;img+.caption</code></pre>
+<h3 id="media-object"><a href="#media-object" class="headerlink" title="media object"></a>media object</h3><pre><code>.media&gt;a.pull-left&gt;img
+       .media-body&gt;.media-heading
+                   .media
+ul.media-list&gt;li.media</code></pre>
+<h3 id="pagination"><a href="#pagination" class="headerlink" title="pagination"></a>pagination</h3><pre><code>ul.pagination pagination-lg pagination-sm
+li.active.disabled
+
+ul.pager
+li.previous li.next</code></pre>
+<h3 id="progress-bar"><a href="#progress-bar" class="headerlink" title="progress bar"></a>progress bar</h3><pre><code>progress&gt;progress-bar[aria-valuenow=&quot;0&quot;]
+         progress-bar-success
+         progress-bar-info
+         progress-bar-warning
+         progress-bar-danger
+         progress-bar-striped.active</code></pre>
+<h3 id="embed"><a href="#embed" class="headerlink" title="embed"></a>embed</h3><pre><code>.embed-responsive.embed-responsive-16by9&gt;iframe.embed-responsive-item
+                 .embed-responsive-4by3</code></pre>
+<h3 id="well"><a href="#well" class="headerlink" title="well"></a>well</h3><pre><code>.well.well-lg
+     .well-sm</code></pre>
+<h3 id="dropdown"><a href="#dropdown" class="headerlink" title="dropdown"></a>dropdown</h3><pre><code>dropdown dropup
+dropdown-toggle
+ul.dropdown-menu dropdown-menu-right
+li.active.disabled
+li.dropdown-header divider</code></pre>
+<h3 id="modal"><a href="#modal" class="headerlink" title="modal"></a>modal</h3><pre><code>[data-toggle=&quot;modal&quot; data-target=&quot;#myModal&quot;]
+.modal-backdrop.fade.in
+.modal.fade
+    .modal-dialog.modal-sm.modal-lg
+        .modal-content
+            .modal-header
+            .modal-body
+            .modal-footer</code></pre>
+<h3 id="tooltip"><a href="#tooltip" class="headerlink" title="tooltip"></a>tooltip</h3><pre><code>[data-toggle=&quot;tooltip&quot; data-placement=&quot;left&quot; data-original-title=&quot;Tooltip on left&quot;]
+.tooltip.fade.top.left.bottom.right.in&gt;.tooltip-arrow+.tooltip-inner&gt;&#123;Tooltip on left&#125;</code></pre>
+<h3 id="popover"><a href="#popover" class="headerlink" title="popover"></a>popover</h3><pre><code>[data-toggle=&quot;popover&quot; title=&quot;popover title&quot; data-content=&quot;popover content&quot;]
+.popover.top&gt;.arrow+.popover-title+.popover-content</code></pre>
+<h3 id="carousel"><a href="#carousel" class="headerlink" title="carousel"></a>carousel</h3><pre><code>&lt;div id=&quot;carousel1&quot; class=&quot;carousel slide&quot; data-ride=&quot;carousel&quot; data-interval=&quot;false&quot;&gt;
+    &lt;!-- Indicators --&gt;
+    &lt;ol class=&quot;carousel-indicators&quot;&gt;
+        &lt;li data-target=&quot;#carousel1&quot; data-slide-to=&quot;0&quot; class=&quot;active&quot;&gt;&lt;/li&gt;
+        &lt;li data-target=&quot;#carousel1&quot; data-slide-to=&quot;1&quot;&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;!-- Wrapper for slides --&gt;
+    &lt;div class=&quot;carousel-inner&quot;&gt;
+        &lt;div class=&quot;item active&quot;&gt;
+            &lt;img src=&quot;http://dummyimage.com/600x400&quot; class=&quot;center-block&quot; alt=&quot;image&quot;&gt;
+            &lt;div class=&quot;carousel-caption&quot;&gt;
+                &lt;h3&gt;First slide label&lt;/h3&gt;
+                &lt;p&gt;Nulla vitae elit libero.&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;item&quot;&gt;
+            &lt;img src=&quot;http://dummyimage.com/600x400&quot; class=&quot;center-block&quot; alt=&quot;image&quot;&gt;
+            &lt;div class=&quot;carousel-caption&quot;&gt;.carousel-caption&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- Controls --&gt;
+    &lt;a class=&quot;left carousel-control&quot; href=&quot;#carousel1&quot; role=&quot;button&quot; data-slide=&quot;prev&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-chevron-left&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+    &lt;a class=&quot;right carousel-control&quot; href=&quot;#carousel1&quot; role=&quot;button&quot; data-slide=&quot;next&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-chevron-right&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+<h3 id="scrollspy"><a href="#scrollspy" class="headerlink" title="scrollspy"></a>scrollspy</h3><pre><code>&lt;body data-spy=&quot;scroll&quot; data-target=&quot;.navbar-example&quot;&gt;</code></pre>
+<h3 id="affix"><a href="#affix" class="headerlink" title="affix"></a>affix</h3><pre><code>&lt;div data-spy=&quot;affix&quot; data-offset-top=&quot;60&quot; data-offset-bottom=&quot;200&quot;&gt;</code></pre>
+</div></article></div><nav class="pagination is-centered mt-4" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/4/">上一页</a></div><div class="pagination-next"><a href="/page/6/">下一页</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/4/">4</a></li><li><a class="pagination-link is-current" href="/page/5/">5</a></li><li><a class="pagination-link" href="/page/6/">6</a></li><li><a class="pagination-link" href="/page/7/">7</a></li><li><a class="pagination-link" href="/page/8/">8</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.jpg" alt="Jet Yu"></figure><p class="title is-size-4 is-block line-height-inherit">Jet Yu</p><p class="is-size-6 is-block">Java Developer</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Earth</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">79</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">5</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">71</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/jetyu" target="_blank" rel="noopener">关注我</a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">技术</span></span><span class="level-end"><span class="level-item tag">41</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%BC%94%E8%AE%B2/"><span class="level-start"><span class="level-item">演讲</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="level-start"><span class="level-item">生活</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%AF%BB%E4%B9%A6/"><span class="level-start"><span class="level-item">读书</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E9%9A%8F%E7%AC%94/"><span class="level-start"><span class="level-item">随笔</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2020-04-11T16:00:00.000Z">2020-04-12</time></p><p class="title is-6"><a class="link-muted" href="/post/mariadb-connection-error">解决MariaDB连接错误</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-01-20T16:00:00.000Z">2020-01-21</time></p><p class="title is-6"><a class="link-muted" href="/post/disable-cleanmymac-process">禁止流氓启动项 CleanMyMac X HealthMonitor</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2019-12-31T16:00:00.000Z">2020-01-01</time></p><p class="title is-6"><a class="link-muted" href="/post/homebrew-install-openjdk">macOS使用homebrew安装JDK</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2019-11-10T16:00:00.000Z">2019-11-11</time></p><p class="title is-6"><a class="link-muted" href="/post/eclipse-boot-optimization">Eclipse启动速度优化</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2019-07-11T16:00:00.000Z">2019-07-12</time></p><p class="title is-6"><a class="link-muted" href="/post/docker-jenkins-upgrade">在Docker中升级Jenkins版本</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://curl.qcloud.com/FNBPkY8D" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">腾讯云99元</span></span><span class="level-right"><span class="level-item tag">curl.qcloud.com</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://how2j.cn/k/tmall_ssm/tmall_ssm-1554/1554.html?p=126142" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">免费Java实战</span></span><span class="level-right"><span class="level-item tag">how2j.cn</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">Jet&#039;s Notes</a><p class="size-small"><span>&copy; 2020 Jet Yu</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" async></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

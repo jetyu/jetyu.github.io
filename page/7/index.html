@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Jet&#039;s Notes</title><meta description="Jet&amp;#39;s Notes - 在这里分享我在工作和生活中的感想"><meta property="og:type" content="blog"><meta property="og:title" content="Jet&#039;s Notes"><meta property="og:url" content="https://jetyu.me/"><meta property="og:site_name" content="Jet&#039;s Notes"><meta property="og:description" content="Jet&amp;#39;s Notes - 在这里分享我在工作和生活中的感想"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://jetyu.me/img/og_image.png"><meta property="article:author" content="Jet Yu"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://jetyu.me"},"headline":"Jet's Notes","image":["https://jetyu.me/img/og_image.png"],"author":{"@type":"Person","name":"Jet Yu"},"description":"Jet&#39;s Notes - 在这里分享我在工作和生活中的感想"}</script><link rel="icon" href="/img/favicon.ico"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">Jet&#039;s Notes</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2016-08-12T05:17:43.000Z" title="2016-08-12T05:17:43.000Z">2016-08-12</time>发表</span><span class="level-item"><time dateTime="2016-08-12T08:27:13.000Z" title="2016-08-12T08:27:13.000Z">2016-08-12</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="level-item">2 分钟读完 (大约265个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/post/mutation-function-summary">Mutations算法</a></h1><div class="content"><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>找到提供的句子中最长的单词，蛤蟆可以吃队友，也可以吃对手。</p>
+<p>如果数组第一个字符串元素包含了第二个字符串元素的所有字符，函数返回true。</p>
+<p>举例，[“hello”, “Hello”]应该返回true，因为在忽略大小写的情况下，第二个字符串的所有字符都可以在第一个字符串找到。</p>
+<p>[“hello”, “hey”]应该返回false，因为字符串”hello”并不包含字符”y”。</p>
+<p>[“Alien”, “line”]应该返回true，因为”line”中所有字符都可以在”Alien”找到。并计算它的长度。函数的返回值应该是一个数字。</p>
+<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><blockquote>
+<p>String.indexOf();</p>
+</blockquote>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>1.先把两个字符串全部变成小写 toLowerCase();<br>2.在for循环里面，使用indexOf()来做匹配。否则continue,直到匹配OK才行。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mutation</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> value1 = arr[<span class="number">0</span>].toLowerCase();</span><br><span class="line">  <span class="keyword">var</span> value2 = arr[<span class="number">1</span>].toLowerCase();</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>,len = value2.length;i &lt; len;i++)&#123;</span><br><span class="line">    res = value1.indexOf(value2[i]);</span><br><span class="line">    <span class="keyword">if</span>(res === <span class="number">-1</span>)&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mutation([<span class="string">&quot;hello&quot;</span>, <span class="string">&quot;hey&quot;</span>]);</span><br></pre></td></tr></table></figure>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2016-06-23T05:17:43.000Z" title="2016-06-23T05:17:43.000Z">2016-06-23</time>发表</span><span class="level-item"><time dateTime="2016-06-23T08:27:13.000Z" title="2016-06-23T08:27:13.000Z">2016-06-23</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="level-item">1 分钟读完 (大约174个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/post/find-word-string">Find the Longest Word in a String算法</a></h1><div class="content"><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>找到提供的句子中最长的单词，并计算它的长度。函数的返回值应该是一个数字。</p>
+<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><blockquote>
+<p>String.split(); <br /><br>String.length();</p>
+</blockquote>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>先把字符串分割成数组，然后用sort函数对每个元素的length进行排序，排出最大的那个元素到首位，然后取长度返回。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findLongestWord</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> array = str.split(<span class="string">&quot; &quot;</span>);</span><br><span class="line">  <span class="keyword">var</span> result = array.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> b.length -a.length;</span><br><span class="line">  &#125;);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> result[<span class="number">0</span>].length;</span><br><span class="line">&#125;</span><br><span class="line">findLongestWord(<span class="string">&quot;The quick brown fox jumped over the lazy dog&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>我觉得以上这个代码肯定不算最优解，但是至少，我认为能把我前期学到的sort函数，split()用上也不错。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2016-06-05T18:17:43.000Z" title="2016-06-05T18:17:43.000Z">2016-06-06</time>发表</span><span class="level-item"><time dateTime="2016-06-06T04:17:43.000Z" title="2016-06-06T04:17:43.000Z">2016-06-06</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="level-item">1 分钟读完 (大约139个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/post/return-numbers-arrays">Return Largest Numbers in Arrays算法</a></h1><div class="content"><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>右边大数组中包含了4个小数组，分别找到每个小数组中的最大值，然后把它们串联起来，形成一个新数组。</p>
+<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><blockquote>
+<p>你可以用for循环来迭代数组，并通过arr[i]的方式来访问数组的每个元素。</p>
+</blockquote>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>暂时没有，网上看到的。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">largestOfFour</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// You can do this!</span></span><br><span class="line">  <span class="keyword">var</span> result = [];</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">    <span class="keyword">var</span> largestNumber = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;arr[i].length;j++)&#123;</span><br><span class="line">      <span class="keyword">if</span>(largestNumber &lt; arr[i][j])&#123;</span><br><span class="line">         largestNumber = arr[i][j];</span><br><span class="line">      &#125; </span><br><span class="line">    &#125;</span><br><span class="line">    result[i] = largestNumber;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">largestOfFour([[<span class="number">4</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">3</span>], [<span class="number">13</span>, <span class="number">27</span>, <span class="number">18</span>, <span class="number">26</span>], [<span class="number">32</span>, <span class="number">35</span>, <span class="number">37</span>, <span class="number">39</span>], [<span class="number">1000</span>, <span class="number">1001</span>, <span class="number">857</span>, <span class="number">1</span>]]);</span><br></pre></td></tr></table></figure>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2016-05-10T18:17:43.000Z" title="2016-05-10T18:17:43.000Z">2016-05-11</time>发表</span><span class="level-item"><time dateTime="2016-05-11T04:17:43.000Z" title="2016-05-11T04:17:43.000Z">2016-05-11</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="level-item">2 分钟读完 (大约369个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/post/check-for-palindrome">Check for Palindromes算法</a></h1><div class="content"><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>如果给定的字符串是回文，返回true，反之，返回false。<br>如果一个字符串忽略标点符号、大小写和空格，正着读和反着读一模一样，那么这个字符串就是palindrome(回文)。<br>注意你需要去掉字符串多余的标点符号和空格，然后把字符串转化成小写来验证此字符串是否为回文。函数参数的值可以为”racecar”，”RaceCar”和”race CAR”。</p>
+<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><blockquote>
+<p>String.replace();<br/><br>String.toLowerCase();</p>
+</blockquote>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>用正则表达式验证字符串当中的标点符号和空格，用””替换，然后用toLowerCase()方法转为小写再进行比较。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">palindrome</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> re = <span class="regexp">/[\W_]/g</span>;</span><br><span class="line">  <span class="keyword">var</span> lowRegStr = str.toLowerCase().replace(re, <span class="string">&#x27;&#x27;</span>);</span><br><span class="line">  <span class="keyword">var</span> reverseStr = lowRegStr.split(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>); </span><br><span class="line">  <span class="keyword">return</span> reverseStr === lowRegStr;</span><br><span class="line">&#125;</span><br><span class="line">palindrome(<span class="string">&quot;A man, a plan, a canal. Panama&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>但是写完以后感觉还不错的样子，于是上网上去搜索了一下这个问题还有那种解法，<br>然后又看到了几种解法（如下，忘记那位网友了），一句话解决问题了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">palindrome</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line"> <span class="keyword">return</span> str.replace(<span class="regexp">/[\W_]/g</span>, <span class="string">&#x27;&#x27;</span>).toLowerCase() === str.replace(<span class="regexp">/[\W_]/g</span>, <span class="string">&#x27;&#x27;</span>).toLowerCase().split(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">palindrome(<span class="string">&quot;nope&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">palindrome</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> normalizedStr = str.replace(<span class="regexp">/[\W_]/g</span>, <span class="string">&#x27;&#x27;</span>).toLowerCase();</span><br><span class="line">  <span class="keyword">var</span> reverseStr = normalizedStr.split(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">  <span class="keyword">return</span> normalizedStr === reverseStr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>所以我感觉我还too young……<br>仔细观察了一下他的写法，直接return…能省去不必要的变量命名就省去，也算是学习了。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2016-04-06T04:17:43.000Z" title="2016-04-06T04:17:43.000Z">2016-04-06</time>发表</span><span class="level-item"><time dateTime="2016-04-06T04:17:43.000Z" title="2016-04-06T04:17:43.000Z">2016-04-06</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="level-item">3 分钟读完 (大约426个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/post/title-case-sentence">Title Case a Sentence算法</a></h1><div class="content"><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>确保字符串的每个单词首字母都大写，其余部分小写。像’the’和’of’这样的连接符同理。</p>
+<blockquote>
+<p>String.split()</p>
+</blockquote>
+<ul>
+<li>titleCase(“I’m a little tea pot”) 应该返回一个字符串.</li>
+<li>titleCase(“I’m a little tea pot”) 应该返回 “I’m A Little Tea Pot”.</li>
+<li>titleCase(“sHoRt AnD sToUt”)应该返回 “Short And Stout”.</li>
+<li>titleCase(“HERE IS MY HANDLE HERE IS MY SPOUT”) 应该返回 “Here Is My Handle Here Is My Spout”.</li>
+</ul>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>拿到这道题目的时候，距离上一次刷算法已经是3年前了，作为现在初学javascript的菜鸟，好多方法都得现去查找，这个不知道不要紧，但是思路很重要，所以我当时的想法就是一步一步来呗。</p>
+<ol>
+<li>先将字符串全部转换为小写字母，而且把他分割成数组。</li>
+<li>然后遍历数组，方法是将首字母大写，然后其他字母小写，但是后来我发现多此一举了，因为你最开始第一步全部都把字母转换为了小写字母了。</li>
+</ol>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">titleCase</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> array = str.toLowerCase().split(<span class="string">&quot; &quot;</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">        array[i] = array[i].charAt(<span class="number">0</span>).toUpperCase() + array[i].slice(<span class="number">1</span>).toLowerCase();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> array.join(<span class="string">&quot; &quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">titleCase(<span class="string">&quot;I&#x27;m a little tea pot&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>但是后来认为性能不足，没错，就是上面那个所谓的</p>
+<blockquote>
+<p>i &lt; array.length;</p>
+</blockquote>
+<p>没缓存，影响性能。<br>定义一个变量，缓存一下，然后又优化了一下代码。</p>
+<p>最终代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">titleCase</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> array = str.split(<span class="string">&quot; &quot;</span>);</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>,len=array.length;i&lt;len;i++)&#123;</span><br><span class="line">    array[i] = array[i].charAt(<span class="number">0</span>).toUpperCase() + array[i].slice(<span class="number">1</span>).toLowerCase();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> array.join(<span class="string">&quot; &quot;</span>); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">titleCase(<span class="string">&quot;I&#x27;m a little tea pot&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>在javascript算法道路上越战越勇！</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2016-01-05T08:27:13.000Z" title="2016-01-05T08:27:13.000Z">2016-01-05</time>发表</span><span class="level-item"><time dateTime="2016-10-15T08:27:13.000Z" title="2016-10-15T08:27:13.000Z">2016-10-15</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></span><span class="level-item">6 分钟读完 (大约855个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/post/2016-annual-plan">2016 全年计划</a></h1><div class="content"><h2 id="2016年个人计划"><a href="#2016年个人计划" class="headerlink" title="2016年个人计划"></a>2016年个人计划</h2><h3 id="身体健康"><a href="#身体健康" class="headerlink" title="身体健康"></a>身体健康</h3><p>我是一个150斤的胖子，现在体检的时候，发现我血压有些高，而且肝功能不太正常，去看大夫，大夫说你太胖了，减肥就好了。<br>所以今年的目标一定要达成。</p>
+<h3 id="技术提升"><a href="#技术提升" class="headerlink" title="技术提升"></a>技术提升</h3><p>现在在做IBM大型机这块业务，技术倒是没什么，但是苦于开发项目太少，虽然进项目组也做了不少开发项目，但是个人也不太喜欢Mainframe这一领域，说它重要，它确实是银行，保险，证券行业必不可少的服务器。<br>说它不重要，由于编程语言不是很难，而且是面向过程编程，理解起来不会有多大的难度，而且对于现在的情况来说，IBM可能要把一些业务sunset掉，全部迁移到cloud上面，<br>这样的话，大机顶多作为一个物理介质存在，而不会成为公司整个业务的增长点。<br>我认为2016年一定会是移动互联网，前端，Python开始大量爆发的年代，别的不说，光前端来说，我就认为javascript的机会很大。<br>再就是博客，现在我认为写博客不是一件浪费时间的事情，倒是一个timeline，可以帮助我记住一些东西，<br>而且对于算法来说，我知道，大家工作中用到的算法其实不是很多，技术一旦不用就会生疏，一些排列组合有可能都写不出来。<br>所以总结是一个很有效的过程，磨刀不误砍柴工。</p>
+<h3 id="读书计划"><a href="#读书计划" class="headerlink" title="读书计划"></a>读书计划</h3><p>读书其实也没多少东西，因为现在的书籍说实在的鱼龙混杂，不能说哪本网络小说不好看，也不能说哪本名著就一定有益于身心健康，对于我来说，适合我的才是最好的。<br>我看了一下，有几本书在我的ToDo List里面。</p>
+<ul>
+<li>《野心优雅》</li>
+<li>《白说》</li>
+<li>《暗算》*</li>
+<li>《亮剑》</li>
+<li>《历史是个什么玩意》</li>
+</ul>
+<p>*代表optional</p>
+<h3 id="个人感情"><a href="#个人感情" class="headerlink" title="个人感情"></a>个人感情</h3><p>说到感情方面，其实个人有时候你想找不一定找得到啊，而且之前别人给我发过’好人卡’，结果后来我又给别人发了2张’好人卡’,算是来而不往非礼也，哈哈。<br>但是我知道，合适我的姑娘，我一定会去追。<br>但是我这个人有时候太理性了，我干什么事都会权衡利弊，这个可能就会造成不仅仅是感情，或者有其他机会，有可能在我思考的时候他就回转瞬即逝。<br>不过没啥事，随缘吧，这个target要是年末实现不了，我就自己new个对象！<br>我都YY好了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">myLoveGirl = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">myLoveGirl.sex = female;</span><br><span class="line">myLoveGirl.age = <span class="string">&#x27;25&#x27;</span>;</span><br><span class="line">myLoveGirl.height = <span class="string">&#x27;165&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+
+<p>综上所述：</p>
+<p><strong>2016年目标</strong></p>
+<ul>
+<li><p>健康：减脂到130斤</p>
+</li>
+<li><p>技术：自学前端，博客保持至少1个月写2篇文章。</p>
+</li>
+<li><p>读书：计划是读四本书</p>
+</li>
+<li><p>感情：找个对象 </p>
+<p>希望都能实现（做人不要太贪噢~）</p>
+</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2015-12-21T03:17:23.000Z" title="2015-12-21T03:17:23.000Z">2015-12-21</time>发表</span><span class="level-item"><time dateTime="2015-12-21T03:17:23.000Z" title="2015-12-21T03:17:23.000Z">2015-12-21</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></span><span class="level-item">12 分钟读完 (大约1790个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/post/influence-life-books">影响我人生的三本书</a></h1><div class="content"><p>网上买的书今天邮到了。</p>
+<p>  小牛姐看到后说：你挺有雅兴啊。其实不是，主要是为了花钱学习。<br>  小时候，我妈给我最愿意给我买的东西不是我最想要的玩具，而是书，所以截至到上完小学，一直想要一套乐高玩具，不知后来什么原因，也就释然了。</p>
+<h3 id="一"><a href="#一" class="headerlink" title="一"></a>一</h3><p>  在我印象中，我第一本书真正能自己看懂，也最爱看的书，是我爸书柜里一本1978年港中大出版的《中国近代史》。书价只有几毛钱，当时幼稚的我就觉得，好便宜啊。每天写完作业，第一件事不是说预习复习功课，而是拿出来看这本书，我妈看我看的是历史书，也就随我了，这本书可以说对我现在钟爱历史留下了不可磨灭的影响，无论看没看过的章节，总感觉很过瘾，由于翻的次数太多，而且对那时候印书工艺的油墨味特别“着迷”，封皮最后都被我扯掉了，但是依然不乏我对这本书的喜爱，13年的时候偶然去书店买书，发现了这本书，已经再版十几次了，但是出版社已经变成了世界图书出版公司，价格翻了300倍，60多元，翻开看了下，有些内容依稀记得，但是书中大部分不利于我国“稳定团结富强民主自由”的内容全部都被删掉了，是个阉割版，买他干甚？</p>
+<h3 id="二"><a href="#二" class="headerlink" title="二"></a>二</h3><p>  第二本不算是实实在在的书，但也是陪伴我时间最久的书，那就是《读者》，据说是亚洲发行量最大的期刊，价格不贵，从我上小学就开始买了，半月刊，我爸发现我看《读者》有个习惯，每买一期杂志，先不看里面的文章内容，而是看读者最中间的广告页，我爸笑着说，主办方就靠这玩意（插页广告）赚钱，而你最先看广告，你不正中人家圈套吗？没错，每次看读者，就想先看里面的广告，总觉得里面有吸引我的东西，印象最深的就是“凡客”和“贝塔斯曼”的广告，总觉得人家广告做的可真好，但我随后就去淘宝网买书买衣服去了。因为半月出一版，而且一直在买，以至于报刊亭的老板每到一期就自动给我留一本，我爸说还不如直接买合订版，保存方便，我问他的第一句话是：合订版中间有插页广告吗？</p>
+<p>   早期其实不爱看《读者》的文章，尤其那些鸡汤文，但是每次我爸妈出门都把Modern锁到柜子里，怕我上网。家里早期是163拨号上网，电话线要连接到modern上去，当时有电脑都是个新鲜事儿，更别说接入因特网（那时候特流行这么叫），对因特网感到非常新鲜，有一回就试着在3721（那时候百度还不出名）里面搜索“如何开锁？”，照着亿唐（这网站在2000年互联网泡沫爆发的时候大幅度烧钱，入不敷出，苟延残喘到06年的时候，卖给了奇虎360）教程学半天没学会，也没撬开啊，有一天我爸妈出去上班了，我就拿着一根细铁丝往里面捣鼓，还煞有介事的转两下，撬半天都没撬开，给我急了一头的汗，快要放弃的时候，结果“啪”锁开了。。结果可想而知，由于技艺不娴熟，导致开锁之后锁不上了。。。随后我爸回来一顿胖揍！所以后来每当我干某件事想放弃的时候，总想这件事，撬锁都成功了，还有什么干不成的？</p>
+<p>   自从这件事之后，我爸干脆不锁了，他怕我撬锁成瘾，换方法了，比如鼠标下放跟头发，鼠标垫摆个特定角度，显示器电源故意不关，故意摆放鼠标或者键盘位置，当时我心想，谁的头发，摆到鼠标垫上了，“噗”的一吹，干干净净，嗯，我爸回来后，给我收拾了个干净。所以后来再也不敢偷偷上网了。</p>
+<p>  每次趁我爸妈出门，不想学习，就只能拿出《读者》来看，时间一长，也慢慢有了兴趣，感觉里面文章蛮吸引人的。由于没事就拿出来看看里面的文章，好多文章可以说是熟烂于心，后来中考和高考的时候，语文捡了个大便宜，阅读理解和作文题材全是从《读者》里节选的！</p>
+<h3 id="三"><a href="#三" class="headerlink" title="三"></a>三</h3><p>  第三本书是我看完电视剧《亮剑》《暗算》之后，感觉意犹未尽，而且电视机拍的不全，所以找来了小说来看。那个时候，我涉猎的范围比较广，言情，谍战，推理，历史，虚幻等等都看，也不限于郭敬明、韩寒、饶雪漫、刘墉、池莉、刘震云之流。</p>
+<p>  《亮剑》和《暗算》算是我看的所有小说里面看的次数比较多的两本。</p>
+<p>   喜欢《暗算》的原因是，喜欢钱之江的沉稳与勇敢，欣赏黄依依的正直和善良，敬佩安在天的乐观与成熟。</p>
+<p>   原著与电视剧不同的是书里情节暗示组织不让他俩在一起，因为黄依依出身，作风，阶级等等，怕他们结婚影响安在天工作、影响安在天光辉形象。其实小雨早就死了，组织一直没告诉他，安在天还以为自己的妻子活着。所以他根本没办法和黄依依结婚，因为是自己感情出轨，觉得非常对不起妻子。等黄依依去世之后，组织才告诉他，才知道自己被坑了，但为时已晚。作为一名优秀的共产党员，不能埋怨组织，所以只能自己默默承受所有痛苦，然后孤老一生。书里写他在两个女人的墓前心如死灰那一段，让人潸然泪下。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2015-10-20T05:17:43.000Z" title="2015-10-20T05:17:43.000Z">2015-10-20</time>发表</span><span class="level-item"><time dateTime="2015-10-20T08:27:13.000Z" title="2015-10-20T08:27:13.000Z">2015-10-20</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="level-item">4 分钟读完 (大约664个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/post/learning-regular-rules">30分钟弄懂正则表达式</a></h1><div class="content"><p>其实写这个题目有些标题党了，毕竟，罗马不是一天建成的。<br>我是上大学期间接触正则，其实都学的不太好，主要五花八门记不住啊！再就是前端做验证写的多点，不然根本不用这个东西，<br>这玩意喝醉酒了，再看一眼，还是不会的，但是不会了就拿出来看看也是极好的。</p>
+<h3 id="正则概述"><a href="#正则概述" class="headerlink" title="正则概述"></a>正则概述</h3><p>学习一样新事物时应该从最基本的地方开始。<br>不要被正则的各种符号所迷惑，正则的规则其实很简单。<br>我们通常使用正则来描述语言，比如“hello”，因此你可以把正则看成一个集合，例如：空集合为{}(一般记作ε)，一个字母集合为{a}。 </p>
+<h3 id="运算规则"><a href="#运算规则" class="headerlink" title="运算规则"></a>运算规则</h3><p>正则最基本的运算规则只有三条：<br>1.并运算，记作 X|Y ，你可以理解为加法。例如a|b所表示的集合为{a,b}<br>2.连接运算，记作XY ，你可以理解为乘法。例如X为a|b，Y为c|d，那么XY的集合为{ac,ad,bc,cd}<br>3.克林闭包运算，记作X* ，你可以理解为零个或者多个X连接。例如a*所表示的集合为{ε,a,aa,aaa,……} </p>
+<p>现在你已经了解正则的全部规则了，那些复杂的规则你可以看作是语法糖，都可以用这三个规则来描述。</p>
+<h3 id="正则例子"><a href="#正则例子" class="headerlink" title="正则例子"></a>正则例子</h3><p>1.hello，即5个字母的连接运算：hello<br>2.[ab]，即为ab两个字母的并运算：a|b<br>3.[0-9]，即为并运算0|1|2|3|4|5|6|7|8|9<br>4.A?，即为并运算A|ε<br>5.A+，即为AA*</p>
+<p>记住上面的三条运算规则之后，你就能看懂并且会写一些基本的正则表达式了，所以写一些高级点的正则表达式，就需要借助工具和一些前人写的东西来节省时间啦！</p>
+<h3 id="测试工具"><a href="#测试工具" class="headerlink" title="测试工具"></a>测试工具</h3><p>以下是几个常用的工具和网站，我喜欢用第二个和第三个，毕竟在线测试，很方便，第一个也很不错的。<br>  <a target="_blank" rel="noopener" href="http://deerchao.net/tools/regex_tester/index.htm">正则表达式测试器</a><br>  <a target="_blank" rel="noopener" href="http://www.regexr.com/">Regexr（正则表达式在线测试）</a><br>  <a target="_blank" rel="noopener" href="http://www.debuggex.com/">Debuggex（正则表达式在线测试）</a><br>  <a target="_blank" rel="noopener" href="http://deerchao.net/tutorials/regex/common.htm">常用正则表达式</a></p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p>  <a target="_blank" rel="noopener" href="http://deerchao.net/tutorials/regex/regex.htm#ad">正则表达式30分钟入门教程</a></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2015-10-08T11:21:13.000Z" title="2015-10-08T11:21:13.000Z">2015-10-08</time>发表</span><span class="level-item"><time dateTime="2015-10-08T11:21:13.000Z" title="2015-10-08T11:21:13.000Z">2015-10-08</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="level-item">3 分钟读完 (大约467个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/post/windows-mac-software">自用Windows和Mac软件推荐</a></h1><div class="content"><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>日常平台是Windows和macOS、Linux，用的频率最多的是Windows，其次是macOS，最后是Linux（RedHat），当然不能说用Windows的逼格就低，用Linux就牛逼，而且现在Windows 10 自带shell了，所以可以少折腾了，但是你要说MS要靠Windows 10蚕食Linux市场，还很远。主要推荐一下Windows和Mac平台，毕竟这两大平台对Customer的份额要远远高于对Biz的份额。</p>
+<p><strong>注</strong>：有些软件不是自己随便选的，比如DB2，Notes，RAD都是公司要求使用的开发协作平台和数据库产品。<br>license：凡是需要付费才能使用或者需要license的都√ </p>
+<p>废话不多说了，都来看看。</p>
+<h3 id="平台"><a href="#平台" class="headerlink" title="平台"></a>平台</h3><table>
+<thead>
+<tr>
+<th>Band</th>
+<th>OS Platform</th>
+<th>Model</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Lenovo</td>
+<td>Window</td>
+<td>ThinkPad T440p</td>
+</tr>
+<tr>
+<td>Apple</td>
+<td>Mac</td>
+<td>Retina MBP 2015 Mid 15’</td>
+</tr>
+<tr>
+<td>Lenovo</td>
+<td>Red Hat</td>
+<td>ideaPad Z460</td>
+</tr>
+</tbody></table>
+<h3 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h3><table>
+<thead>
+<tr>
+<th align="left">Software Name</th>
+<th align="center">macOS</th>
+<th align="center">Windows</th>
+<th align="center">License</th>
+<th align="left">Note</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Git</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="left">版本控制</td>
+</tr>
+<tr>
+<td align="left">Node.js</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="left">JS Runtime</td>
+</tr>
+<tr>
+<td align="left">SourceTree</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="left">版本控制管理</td>
+</tr>
+<tr>
+<td align="left">IBM RAD</td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="left">Web IDE</td>
+</tr>
+<tr>
+<td align="left">IBM DB2</td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="left">关系型数据库</td>
+</tr>
+<tr>
+<td align="left">Sublime Text 3</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="left">代码编辑器</td>
+</tr>
+<tr>
+<td align="left">VS Code</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="left">代码编辑器</td>
+</tr>
+</tbody></table>
+<h3 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h3><table>
+<thead>
+<tr>
+<th align="left">Software Name</th>
+<th align="center">macOS</th>
+<th align="center">Windows</th>
+<th align="center">License</th>
+<th align="left">Note</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Chrome浏览器</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="left">浏览器</td>
+</tr>
+<tr>
+<td align="left">Mozilla Firefox</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="left">浏览器</td>
+</tr>
+<tr>
+<td align="left">QQ\微信</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="left">社交聊天</td>
+</tr>
+<tr>
+<td align="left">阿里旺旺</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="left">买买买！！</td>
+</tr>
+<tr>
+<td align="left">迅雷</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="left">下载</td>
+</tr>
+</tbody></table>
+<h3 id="办公"><a href="#办公" class="headerlink" title="办公"></a>办公</h3><table>
+<thead>
+<tr>
+<th align="left">Software Name</th>
+<th align="center">macOS</th>
+<th align="center">Windows</th>
+<th align="center">License</th>
+<th align="left">Note</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">印象笔记</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="left">云笔记</td>
+</tr>
+<tr>
+<td align="left">Office 365</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="left">办公必备</td>
+</tr>
+<tr>
+<td align="left">IBM Notes</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="left">协作平台</td>
+</tr>
+</tbody></table>
+<h3 id="影音"><a href="#影音" class="headerlink" title="影音"></a>影音</h3><table>
+<thead>
+<tr>
+<th align="left">Software Name</th>
+<th align="center">macOS</th>
+<th align="center">Windows</th>
+<th align="center">License</th>
+<th align="left">Note</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">PotPlayer</td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="left">视频播放器</td>
+</tr>
+<tr>
+<td align="left">Movist</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="left">视频播放器</td>
+</tr>
+<tr>
+<td align="left">网易云音乐</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="left">音乐播放器</td>
+</tr>
+</tbody></table>
+<h3 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h3><table>
+<thead>
+<tr>
+<th align="left">Software Name</th>
+<th align="center">macOS</th>
+<th align="center">Windows</th>
+<th align="center">License</th>
+<th align="left">Note</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">7zip</td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="left">压缩利器</td>
+</tr>
+<tr>
+<td align="left">WinRAR</td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="left">压缩利器</td>
+</tr>
+<tr>
+<td align="left">百度拼音输入法</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="left">拼音输入法</td>
+</tr>
+<tr>
+<td align="left">谷歌日文输入法</td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="left">日语输入法</td>
+</tr>
+<tr>
+<td align="left">Sumatra PDF</td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="left">pdf浏览</td>
+</tr>
+<tr>
+<td align="left">CleanMyMac</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="left">清理</td>
+</tr>
+</tbody></table>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2015-09-18T04:22:13.000Z" title="2015-09-18T04:22:13.000Z">2015-09-18</time>发表</span><span class="level-item"><time dateTime="2015-09-18T04:22:13.000Z" title="2015-09-18T04:22:13.000Z">2015-09-18</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="level-item">几秒读完 (大约88个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/post/css-center-style">[CSS]水平垂直居中的几种方式</a></h1><div class="content"><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>好久不写CSS和HTML了，今天想着总结一下水平垂直居中定位的几种方式。</p>
+<h3 id="绝对定位"><a href="#绝对定位" class="headerlink" title="绝对定位"></a>绝对定位</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.center_part</span>&#123;</span><br><span class="line">	<span class="attribute">margin</span>: auto;</span><br><span class="line">	<span class="attribute">position</span>:absolute;</span><br><span class="line">	<span class="attribute">top</span>:<span class="number">0</span>;</span><br><span class="line">	<span class="attribute">left</span>:<span class="number">0</span>;</span><br><span class="line">	<span class="attribute">right</span>:<span class="number">0</span>;</span><br><span class="line">	<span class="attribute">bottom</span>:<span class="number">0</span>;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Flex布局"><a href="#Flex布局" class="headerlink" title="Flex布局"></a>Flex布局</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#box1</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">flex-flow</span>: row nowrap;</span><br><span class="line">    <span class="attribute">justify-content</span>: center;<span class="comment">/*水平居中*/</span></span><br><span class="line">    <span class="attribute">align-items</span>:center;<span class="comment">/*垂直居中*/</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#box2</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</div></article></div><nav class="pagination is-centered mt-4" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/6/">上一页</a></div><div class="pagination-next"><a href="/page/8/">下一页</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/6/">6</a></li><li><a class="pagination-link is-current" href="/page/7/">7</a></li><li><a class="pagination-link" href="/page/8/">8</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.jpg" alt="Jet Yu"></figure><p class="title is-size-4 is-block line-height-inherit">Jet Yu</p><p class="is-size-6 is-block">Java Developer</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Earth</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">79</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">5</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">71</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/jetyu" target="_blank" rel="noopener">关注我</a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">技术</span></span><span class="level-end"><span class="level-item tag">41</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%BC%94%E8%AE%B2/"><span class="level-start"><span class="level-item">演讲</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="level-start"><span class="level-item">生活</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%AF%BB%E4%B9%A6/"><span class="level-start"><span class="level-item">读书</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E9%9A%8F%E7%AC%94/"><span class="level-start"><span class="level-item">随笔</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2020-04-11T16:00:00.000Z">2020-04-12</time></p><p class="title is-6"><a class="link-muted" href="/post/mariadb-connection-error">解决MariaDB连接错误</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-01-20T16:00:00.000Z">2020-01-21</time></p><p class="title is-6"><a class="link-muted" href="/post/disable-cleanmymac-process">禁止流氓启动项 CleanMyMac X HealthMonitor</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2019-12-31T16:00:00.000Z">2020-01-01</time></p><p class="title is-6"><a class="link-muted" href="/post/homebrew-install-openjdk">macOS使用homebrew安装JDK</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2019-11-10T16:00:00.000Z">2019-11-11</time></p><p class="title is-6"><a class="link-muted" href="/post/eclipse-boot-optimization">Eclipse启动速度优化</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2019-07-11T16:00:00.000Z">2019-07-12</time></p><p class="title is-6"><a class="link-muted" href="/post/docker-jenkins-upgrade">在Docker中升级Jenkins版本</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://curl.qcloud.com/FNBPkY8D" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">腾讯云99元</span></span><span class="level-right"><span class="level-item tag">curl.qcloud.com</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://how2j.cn/k/tmall_ssm/tmall_ssm-1554/1554.html?p=126142" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">免费Java实战</span></span><span class="level-right"><span class="level-item tag">how2j.cn</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">Jet&#039;s Notes</a><p class="size-small"><span>&copy; 2020 Jet Yu</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" async></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

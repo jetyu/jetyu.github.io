@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Bootstrap总结 - Jet&#039;s Notes</title><meta description="学习Bootstrap之后，对BS进行总结"><meta property="og:type" content="blog"><meta property="og:title" content="Bootstrap总结"><meta property="og:url" content="https://jetyu.me/post/learning-bootstrap-summary"><meta property="og:site_name" content="Jet&#039;s Notes"><meta property="og:description" content="学习Bootstrap之后，对BS进行总结"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="http://ufologist.github.io/bootstrap-cheat-sheet/img/preview.png"><meta property="article:published_time" content="2016-11-28T08:27:13.000Z"><meta property="article:modified_time" content="2016-11-28T08:27:13.000Z"><meta property="article:author" content="Jet Yu"><meta property="article:tag" content="Bootstrap"><meta property="article:tag" content="前端"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="http://ufologist.github.io/bootstrap-cheat-sheet/img/preview.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://jetyu.me/post/learning-bootstrap-summary"},"headline":"Jet's Notes","image":["http://ufologist.github.io/bootstrap-cheat-sheet/img/preview.png"],"datePublished":"2016-11-28T08:27:13.000Z","dateModified":"2016-11-28T08:27:13.000Z","author":{"@type":"Person","name":"Jet Yu"},"description":"学习Bootstrap之后，对BS进行总结"}</script><link rel="canonical" href="https://jetyu.me/post/learning-bootstrap-summary"><link rel="icon" href="/img/favicon.ico"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">Jet&#039;s Notes</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2016-11-28T08:27:13.000Z" title="2016-11-28T08:27:13.000Z">2016-11-28</time>发表</span><span class="level-item"><time dateTime="2016-11-28T08:27:13.000Z" title="2016-11-28T08:27:13.000Z">2016-11-28</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="level-item">10 分钟读完 (大约1530个字)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">Bootstrap总结</h1><div class="content"><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Bootstrap框架学完很久了，跟着项目组也做了几个小型项目，Bootstrap框架有些生疏了，还是自己来总结一下。<br>虽然现在快出4.0了，但是我认为万变不离其宗，而且我学习的时候正好是3.x的时代。<br>示例代码不会再去写了，毕竟官方文档写的要比我好很多，而且忘记的时候去看一下就可以了。<br>官网：<a target="_blank" rel="noopener" href="http://getbootstrap.com/">http://getbootstrap.com/</a><br>练习：<a target="_blank" rel="noopener" href="https://github.com/jetyu/Front-End/tree/master/Bootstrap">https://github.com/jetyu/Front-End/tree/master/Bootstrap</a></p>
+<p>转载<br><a target="_blank" rel="noopener" href="https://github.com/ufologist/bootstrap-cheat-sheet">Bootstrap(v3.2.0) Cheat Sheet</a><br><em>v0.1.0 2014-8-15 by <a target="_blank" rel="noopener" href="https://github.com/ufologist">Sun</a></em></p>
+<p>Bootstrap的文档非常详尽, 每个组件每个示例都能够方便地在日常开发中快速使用, 真心感谢Bootstrap给我们提供一切, 切实地提高了我们的工作效率.</p>
+<p>建议初学者一字不落地将文档看一遍, 上手之后, 其实我们使用频率最高的就是某些组件具体的HTML结构和CSS class, 这些东西如果能够背下来, 必定会让你的开发效率更上一层楼.</p>
+<p>但我记忆力一直不咋的, 每次使用过一个组件后, 下次又得参看文档, 每天不停地打开Bootstrap, 翻来覆去地CTRL + F去找这些组件的使用方法, 并确认Bootstrap是否已经有实现了. 这些东西分散在文档中(Getting started, CSS, Components, JavaScript), 找寻时详尽的文档反而变成了效率的绊脚石.</p>
+<p>其实我需要的是一份简洁的列表, 告诉我Bootstrap实现了哪些东西, 大概涉及到哪些CSS class, 以方便我快速的应用, 将Bootstrap提供的一切都用起来(榨干框架是我们的宗旨), 不重复造轮子, 体现出框架的价值.</p>
+<p>也有小伙伴遇到了同样的问题并打造出了纸质版的<a target="_blank" rel="noopener" href="http://www.bootstrapcheatsheets.com/about/">Bootstrap Cheat Sheets</a>, 但有些列表不够详尽, 或者版本没有和Bootstrap同步, 反正就是没有找到我想要的东西, 因此我自己做了一份markdown版的, 在Sublime Text中可以非常方便的定位大纲内容, 相当的easy!</p>
+<p>如果你在使用过程中有任何意见建议, 欢迎<a target="_blank" rel="noopener" href="https://github.com/ufologist/bootstrap-cheat-sheet">fork</a>出自己的版本或者提出<a target="_blank" rel="noopener" href="https://github.com/ufologist/bootstrap-cheat-sheet/issues/new">issue</a>.</p>
+<p><strong>推荐的使用方法</strong></p>
+<p>将<a target="_blank" rel="noopener" href="https://github.com/ufologist/bootstrap-cheat-sheet/raw/master/README.md">README.md</a>下载到电脑上, 在Sublime Text中打开(Goto Symbol), 效果如下:</p>
+<p><img src="http://ufologist.github.io/bootstrap-cheat-sheet/img/preview.png" alt="preview"></p>
+<p>附赠非常实用的<a target="_blank" rel="noopener" href="http://ufologist.github.io/bootstrap-cheat-sheet/bootstrap-template.html">Bootstrap页面模版</a>, <a target="_blank" rel="noopener" href="http://ufologist.github.io/bootstrap-cheat-sheet/bootstrap-examples.html">Bootstrap示例集合</a>, <a target="_blank" rel="noopener" href="http://ufologist.github.io/bootstrap-cheat-sheet/bootstrap-site-template.html">Bootstrap网页模版</a>, 让我们可以更快的找到想要的东西. 如果想快速搭一个基于 Bootstrap 的页面, <a target="_blank" rel="noopener" href="http://www.layoutit.com/build">LayoutIt!</a>值得一试.</p>
+<h3 id="doctype"><a href="#doctype" class="headerlink" title="doctype"></a>doctype</h3><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;&lt;/html&gt;</code></pre>
+<h3 id="mobile-first"><a href="#mobile-first" class="headerlink" title="mobile first"></a>mobile first</h3><pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</code></pre>
+<h3 id="help-class"><a href="#help-class" class="headerlink" title="help class"></a>help class</h3><pre><code>text-left    text-lowercase  text-primary bg-primary
+text-center  text-uppercase  text-success bg-success
+text-right   text-capitalize text-info    bg-info
+text-justify                 text-warning bg-warning
+text-nowrap                  text-danger  bg-danger
+                             text-muted
+                             text-hide
+                             sr-only.sr-only-focusable
+
+pull-left pull-right clearfix
+center-block
+show hidden
+
+span.caret
+&lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/span&gt;&lt;span class=&quot;sr-only&quot;&gt;Close&lt;/span&gt;&lt;/button&gt;</code></pre>
+<h3 id="grid"><a href="#grid" class="headerlink" title="grid"></a>grid</h3><pre><code>xs sm md lg
+
+Media queries
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) &#123;&#125;
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) &#123;&#125;
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) &#123;&#125;
+
+container container-fluid
+col-*-*
+col-*-offset-*
+col-*-push-*     col-*-pull-*
+visible-*-*      hidden-*
+visible-print-*  hidden-print</code></pre>
+<h3 id="basic-style"><a href="#basic-style" class="headerlink" title="basic style"></a>basic style</h3><pre><code>h1 .h1 small .small
+body font-size: 14px; line-height: 1.428
+p margin-bottom: 10px(half line-height)
+.lead
+
+mark
+del s
+ins u
+small strong em
+code kbd pre var samp
+abbr .initialism
+address
+blockquote footer .blockquote-reverse
+ul ol list-unstyled list-inline
+dl .dl-horizontal</code></pre>
+<h3 id="nav"><a href="#nav" class="headerlink" title="nav"></a>nav</h3><pre><code>ul.nav.nav-tabs nav-pills nav-stacked nav-justified
+
+navbar navbar-default&gt;container&gt;navbar-header&gt;navbar-toggle+navbar-brand
+       navbar-fixed-top        &gt;collapse navbar-collapse&gt;nav navbar-nav
+       navbar-fixed-bottom                              &gt;navbar-form
+       navbar-static-top                                &gt;navbar-btn
+       navbar-inverse                                   &gt;navbar-text navbar-link
+                                                        &gt;navbar-left navbar-right</code></pre>
+<h3 id="tab"><a href="#tab" class="headerlink" title="tab"></a>tab</h3><pre><code>ul.nav.nav-tabs&gt;li.active&gt;a[href=&quot;#home&quot; data-toggle=&quot;tab&quot;]
+.tab-content&gt;.tab-pane.fade.active#home</code></pre>
+<h3 id="jumbotron"><a href="#jumbotron" class="headerlink" title="jumbotron"></a>jumbotron</h3><pre><code>.jumbotron&gt;h1</code></pre>
+<h3 id="page-header"><a href="#page-header" class="headerlink" title="page header"></a>page header</h3><pre><code>.page-header&gt;h1</code></pre>
+<h3 id="breadcrumb"><a href="#breadcrumb" class="headerlink" title="breadcrumb"></a>breadcrumb</h3><pre><code>ol.breadcrumb</code></pre>
+<h3 id="glyphicon"><a href="#glyphicon" class="headerlink" title="glyphicon"></a>glyphicon</h3><pre><code>span.glyphicon.glyphicon-*</code></pre>
+<h3 id="button"><a href="#button" class="headerlink" title="button"></a>button</h3><pre><code>&lt;button&gt; &lt;a&gt; &lt;input&gt;
+btn btn-default btn-xs btn-block active
+    btn-primary btn-sm           disabled .disabled
+    btn-success btn-lg
+    btn-info
+    btn-warning
+    btn-danger
+    btn-link</code></pre>
+<h4 id="stateful"><a href="#stateful" class="headerlink" title="stateful"></a>stateful</h4><pre><code>&lt;button type=&quot;button&quot; id=&quot;example-btn&quot; data-loading-text=&quot;Loading...&quot; class=&quot;btn btn-primary&quot;&gt;submit&lt;/button&gt;
+$(&#39;#example-btn&#39;).click(function() &#123;
+    var btn = $(this);
+    btn.button(&#39;loading&#39;);
+    // btn.button(&#39;complete&#39;); // data-complete-text=&quot;html&quot;
+    $.ajax(&#39;...&#39;).always(function() &#123;
+        btn.button(&#39;reset&#39;);
+    &#125;);
+&#125;);</code></pre>
+<h4 id="toggle"><a href="#toggle" class="headerlink" title="toggle"></a>toggle</h4><pre><code>&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; data-toggle=&quot;button&quot;&gt;Single toggle&lt;/button&gt;</code></pre>
+<h4 id="checkbox"><a href="#checkbox" class="headerlink" title="checkbox"></a>checkbox</h4><pre><code>&lt;div class=&quot;btn-group&quot; data-toggle=&quot;buttons&quot;&gt;
+    &lt;label class=&quot;btn btn-primary active&quot;&gt;
+        &lt;input type=&quot;checkbox&quot; checked&gt;Option 1 (pre-checked)
+    &lt;/label&gt;
+    &lt;label class=&quot;btn btn-primary&quot;&gt;
+        &lt;input type=&quot;checkbox&quot;&gt;Option 2
+    &lt;/label&gt;
+    &lt;label class=&quot;btn btn-primary&quot;&gt;
+        &lt;input type=&quot;checkbox&quot;&gt;Option 3
+    &lt;/label&gt;
+&lt;/div&gt;</code></pre>
+<h4 id="radio"><a href="#radio" class="headerlink" title="radio"></a>radio</h4><pre><code>&lt;div class=&quot;btn-group&quot; data-toggle=&quot;buttons&quot;&gt;
+    &lt;label class=&quot;btn btn-primary active&quot;&gt;
+        &lt;input type=&quot;radio&quot; name=&quot;options&quot; checked&gt;Option 1 (preselected)
+    &lt;/label&gt;
+    &lt;label class=&quot;btn btn-primary&quot;&gt;
+        &lt;input type=&quot;radio&quot; name=&quot;options&quot;&gt;Option 2
+    &lt;/label&gt;
+    &lt;label class=&quot;btn btn-primary&quot;&gt;
+        &lt;input type=&quot;radio&quot; name=&quot;options&quot;&gt;Option 3
+    &lt;/label&gt;
+&lt;/div&gt;</code></pre>
+<h3 id="button-group"><a href="#button-group" class="headerlink" title="button group"></a>button group</h3><pre><code>div.btn-group&gt;button btn-group-xs btn-group-sm btn-group-lg
+div.btn-group&gt;ul.dropdown-menu
+div.btn-toolbar&gt;div.btn-group
+btn-group-vertical
+.btn-group.btn-group-justified</code></pre>
+<h3 id="img"><a href="#img" class="headerlink" title="img"></a>img</h3><pre><code>img.img-responsive
+   .img-rounded.img-circle.img-thumbnail</code></pre>
+<h3 id="table"><a href="#table" class="headerlink" title="table"></a>table</h3><pre><code>table .table .table-striped .table-bordered .table-hover .table-condensed
+tr.active td.success.info.warning.danger
+div.table-responsive</code></pre>
+<h3 id="form"><a href="#form" class="headerlink" title="form"></a>form</h3><pre><code>form .form-inline .form-horizontal
+.form-group .has-success/warning/error .has-feedback .form-control-feedback .form-control
+.checkbox&gt;label&gt;input:checkbox radio
+label.checkbox-inline radio-inline
+.form-control-static
+disabled .disabled readonly
+.input-sm .input-lg
+.form-group-sm .form-group-lg
+.help-block</code></pre>
+<h3 id="input-group"><a href="#input-group" class="headerlink" title="input group"></a>input group</h3><pre><code>input-group input-group-lg input-group-sm
+span.input-group-addon
+span.input-group-btn&gt;button</code></pre>
+<h3 id="label-badge-alert"><a href="#label-badge-alert" class="headerlink" title="label/badge/alert"></a>label/badge/alert</h3><pre><code>span.label.label-default
+           label-primary
+           label-success
+           label-info
+           label-warning
+           label-danger
+
+span.badge
+
+.alert.alert-success&gt;strong
+       alert-info
+       alert-warning
+       alert-danger
+.fade.in
+a.alert-link</code></pre>
+<h3 id="panel"><a href="#panel" class="headerlink" title="panel"></a>panel</h3><pre><code>.panel.panel-default&gt;.panel-heading&gt;.panel-title
+       panel-primary&gt;.panel-body
+       panel-success&gt;.panel-footer
+       panel-info   &gt;table.table
+       panel-warning
+       panel-danger</code></pre>
+<h3 id="collapse-accordion"><a href="#collapse-accordion" class="headerlink" title="collapse/accordion"></a>collapse/accordion</h3><pre><code>.collapse
+.collapse.in
+.collapsing
+
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#demo&quot;&gt;simple collapsible&lt;/button&gt;
+&lt;div id=&quot;demo&quot; class=&quot;collapse in&quot;&gt;collapse content&lt;/div&gt;
+
+&lt;div class=&quot;panel-group&quot; id=&quot;accordion&quot;&gt;
+    &lt;div class=&quot;panel panel-default&quot;&gt;
+        &lt;div class=&quot;panel-heading&quot;&gt;
+            &lt;h4 class=&quot;panel-title&quot;&gt;
+                &lt;a data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#collapse1&quot;&gt;Collapsible Group Item #1&lt;/a&gt;
+            &lt;/h4&gt;
+        &lt;/div&gt;
+        &lt;div id=&quot;collapse1&quot; class=&quot;panel-collapse collapse in&quot;&gt;
+            &lt;div class=&quot;panel-body&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<h3 id="list-group"><a href="#list-group" class="headerlink" title="list group"></a>list group</h3><pre><code>ul.list-group&gt;.list-group-item&gt;span.badge
+.list-group&gt;a.list-group-item.active.disabled&gt;h4.list-group-item-heading
+                                              p.list-group-item-text
+              list-group-item-success
+              list-group-item-info
+              list-group-item-warning
+              list-group-item-danger</code></pre>
+<h3 id="thumbnail"><a href="#thumbnail" class="headerlink" title="thumbnail"></a>thumbnail</h3><pre><code>a.thumbnail&gt;img
+.thumbnail&gt;img+.caption</code></pre>
+<h3 id="media-object"><a href="#media-object" class="headerlink" title="media object"></a>media object</h3><pre><code>.media&gt;a.pull-left&gt;img
+       .media-body&gt;.media-heading
+                   .media
+ul.media-list&gt;li.media</code></pre>
+<h3 id="pagination"><a href="#pagination" class="headerlink" title="pagination"></a>pagination</h3><pre><code>ul.pagination pagination-lg pagination-sm
+li.active.disabled
+
+ul.pager
+li.previous li.next</code></pre>
+<h3 id="progress-bar"><a href="#progress-bar" class="headerlink" title="progress bar"></a>progress bar</h3><pre><code>progress&gt;progress-bar[aria-valuenow=&quot;0&quot;]
+         progress-bar-success
+         progress-bar-info
+         progress-bar-warning
+         progress-bar-danger
+         progress-bar-striped.active</code></pre>
+<h3 id="embed"><a href="#embed" class="headerlink" title="embed"></a>embed</h3><pre><code>.embed-responsive.embed-responsive-16by9&gt;iframe.embed-responsive-item
+                 .embed-responsive-4by3</code></pre>
+<h3 id="well"><a href="#well" class="headerlink" title="well"></a>well</h3><pre><code>.well.well-lg
+     .well-sm</code></pre>
+<h3 id="dropdown"><a href="#dropdown" class="headerlink" title="dropdown"></a>dropdown</h3><pre><code>dropdown dropup
+dropdown-toggle
+ul.dropdown-menu dropdown-menu-right
+li.active.disabled
+li.dropdown-header divider</code></pre>
+<h3 id="modal"><a href="#modal" class="headerlink" title="modal"></a>modal</h3><pre><code>[data-toggle=&quot;modal&quot; data-target=&quot;#myModal&quot;]
+.modal-backdrop.fade.in
+.modal.fade
+    .modal-dialog.modal-sm.modal-lg
+        .modal-content
+            .modal-header
+            .modal-body
+            .modal-footer</code></pre>
+<h3 id="tooltip"><a href="#tooltip" class="headerlink" title="tooltip"></a>tooltip</h3><pre><code>[data-toggle=&quot;tooltip&quot; data-placement=&quot;left&quot; data-original-title=&quot;Tooltip on left&quot;]
+.tooltip.fade.top.left.bottom.right.in&gt;.tooltip-arrow+.tooltip-inner&gt;&#123;Tooltip on left&#125;</code></pre>
+<h3 id="popover"><a href="#popover" class="headerlink" title="popover"></a>popover</h3><pre><code>[data-toggle=&quot;popover&quot; title=&quot;popover title&quot; data-content=&quot;popover content&quot;]
+.popover.top&gt;.arrow+.popover-title+.popover-content</code></pre>
+<h3 id="carousel"><a href="#carousel" class="headerlink" title="carousel"></a>carousel</h3><pre><code>&lt;div id=&quot;carousel1&quot; class=&quot;carousel slide&quot; data-ride=&quot;carousel&quot; data-interval=&quot;false&quot;&gt;
+    &lt;!-- Indicators --&gt;
+    &lt;ol class=&quot;carousel-indicators&quot;&gt;
+        &lt;li data-target=&quot;#carousel1&quot; data-slide-to=&quot;0&quot; class=&quot;active&quot;&gt;&lt;/li&gt;
+        &lt;li data-target=&quot;#carousel1&quot; data-slide-to=&quot;1&quot;&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;!-- Wrapper for slides --&gt;
+    &lt;div class=&quot;carousel-inner&quot;&gt;
+        &lt;div class=&quot;item active&quot;&gt;
+            &lt;img src=&quot;http://dummyimage.com/600x400&quot; class=&quot;center-block&quot; alt=&quot;image&quot;&gt;
+            &lt;div class=&quot;carousel-caption&quot;&gt;
+                &lt;h3&gt;First slide label&lt;/h3&gt;
+                &lt;p&gt;Nulla vitae elit libero.&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;item&quot;&gt;
+            &lt;img src=&quot;http://dummyimage.com/600x400&quot; class=&quot;center-block&quot; alt=&quot;image&quot;&gt;
+            &lt;div class=&quot;carousel-caption&quot;&gt;.carousel-caption&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- Controls --&gt;
+    &lt;a class=&quot;left carousel-control&quot; href=&quot;#carousel1&quot; role=&quot;button&quot; data-slide=&quot;prev&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-chevron-left&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+    &lt;a class=&quot;right carousel-control&quot; href=&quot;#carousel1&quot; role=&quot;button&quot; data-slide=&quot;next&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-chevron-right&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+<h3 id="scrollspy"><a href="#scrollspy" class="headerlink" title="scrollspy"></a>scrollspy</h3><pre><code>&lt;body data-spy=&quot;scroll&quot; data-target=&quot;.navbar-example&quot;&gt;</code></pre>
+<h3 id="affix"><a href="#affix" class="headerlink" title="affix"></a>affix</h3><pre><code>&lt;div data-spy=&quot;affix&quot; data-offset-top=&quot;60&quot; data-offset-bottom=&quot;200&quot;&gt;</code></pre>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Bootstrap总结</p><p><a href="https://jetyu.me/post/learning-bootstrap-summary">https://jetyu.me/post/learning-bootstrap-summary</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Jet Yu</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2016-11-28</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2016-11-28</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags size-small mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/Bootstrap/">Bootstrap</a><a class="link-muted mr-2" rel="tag" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a></div><!--!--></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button is-info donate"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="/img/alipay-donate.jpg" alt="支付宝"></span></a><a class="button is-success donate"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="/img/wechat-donate.jpg" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/post/dir-transfer-repo"><i class="level-item fas fa-chevron-left"></i><span class="level-item">如何将已有目录转化为Git项目并托管到Github仓库</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/post/lose-weight-photos"><span class="level-item">终于瘦下来了</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content" id="valine-thread"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script>new Valine({
+            el: '#valine-thread' ,
+            appId: "K8J4A1eN9d2KT2CEEHae7lLF-gzGzoHsz",
+            appKey: "LWJjj9uBsaJ90Sca4eYnQrbN",
+            
+            avatar: "mm",
+            
+            meta: ["nick","mail","link"],
+            pageSize: 10,
+            lang: "zh-CN",
+            
+            highlight: true,
+            
+            
+            
+            
+            
+            requiredFields: [],
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.jpg" alt="Jet Yu"></figure><p class="title is-size-4 is-block line-height-inherit">Jet Yu</p><p class="is-size-6 is-block">Java Developer</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Earth</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">79</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">5</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">71</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/jetyu" target="_blank" rel="noopener">关注我</a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">技术</span></span><span class="level-end"><span class="level-item tag">41</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%BC%94%E8%AE%B2/"><span class="level-start"><span class="level-item">演讲</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="level-start"><span class="level-item">生活</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%AF%BB%E4%B9%A6/"><span class="level-start"><span class="level-item">读书</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E9%9A%8F%E7%AC%94/"><span class="level-start"><span class="level-item">随笔</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2020-04-11T16:00:00.000Z">2020-04-12</time></p><p class="title is-6"><a class="link-muted" href="/post/mariadb-connection-error">解决MariaDB连接错误</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-01-20T16:00:00.000Z">2020-01-21</time></p><p class="title is-6"><a class="link-muted" href="/post/disable-cleanmymac-process">禁止流氓启动项 CleanMyMac X HealthMonitor</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2019-12-31T16:00:00.000Z">2020-01-01</time></p><p class="title is-6"><a class="link-muted" href="/post/homebrew-install-openjdk">macOS使用homebrew安装JDK</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2019-11-10T16:00:00.000Z">2019-11-11</time></p><p class="title is-6"><a class="link-muted" href="/post/eclipse-boot-optimization">Eclipse启动速度优化</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2019-07-11T16:00:00.000Z">2019-07-12</time></p><p class="title is-6"><a class="link-muted" href="/post/docker-jenkins-upgrade">在Docker中升级Jenkins版本</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://curl.qcloud.com/FNBPkY8D" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">腾讯云99元</span></span><span class="level-right"><span class="level-item tag">curl.qcloud.com</span></span></a></li><li><a class="level is-mobile is-mobile" href="https://how2j.cn/k/tmall_ssm/tmall_ssm-1554/1554.html?p=126142" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">免费Java实战</span></span><span class="level-right"><span class="level-item tag">how2j.cn</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">Jet&#039;s Notes</a><p class="size-small"><span>&copy; 2020 Jet Yu</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" async></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
